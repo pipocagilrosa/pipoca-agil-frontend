@@ -1,6 +1,10 @@
+:root {
+    --primary: #372149;
+}
+
 h2 {
     width: 329px;
-    color: #372149;
+    color: var(--primary);
     font-size: 27px;
     font-style: normal;
     font-weight: 500;
@@ -8,8 +12,12 @@ h2 {
     padding-left: 283px;
 }
 
-.container-master {
+.container {
+    height: 100%;
     width: 1000px;
+    margin: auto;
+    background-color: white;
+    position: relative;
 }
 
 .mat-card {
@@ -19,14 +27,13 @@ h2 {
     margin: auto;
 }
 
-.container {
+.circle-container {
     display: inline-block;
 }
 
 .circle {
     border-radius: 50%;
-    background-color: white;
-    color: black;
+    background-color: #FDDC5C;
     height: 27px;
     width: 27px;
 }
@@ -45,6 +52,14 @@ h2 {
 
 .right-circle {
     margin-left: 200px;
+}
+
+.number {
+    color: var(--primary);
+    font-style: normal;
+    font-weight: 700;
+    padding-left: 9px;
+    padding-top: 4px;
 }
 
 .title-content {
