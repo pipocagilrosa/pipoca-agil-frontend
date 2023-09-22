@@ -1,5 +1,7 @@
 :root {
     --primary: #372149;
+    --primary-dark: 
+    --primary-light:
 }
 
 h2 {
@@ -9,7 +11,7 @@ h2 {
     font-style: normal;
     font-weight: 500;
     line-height: 27px;
-    padding-left: 283px;
+    padding-left: 100px;
 }
 
 .container {
@@ -62,14 +64,14 @@ h2 {
     padding-top: 4px;
 }
 
-.title-content {
+.mat-card-title-dark {
     color: white;
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
     line-height: 27px;
     padding-left: 30px;
-    padding-top: 80px;
+    padding-top: 60px;
 }
 
 .mat-card-content-dark {
@@ -79,9 +81,22 @@ h2 {
     width: 447px;
 }
 
+.mat-card-title-light {
+    padding-top: 25px;
+    padding-left: 30px;
+    padding-bottom: 25px;
+}
+
 .mat-card-content-light {
     background-color: #D9B7F4;
     border-radius: 0px 5px 5px 0px;
     height: 526px;
     width: 350px;
+}
+
+.mat-form-field {
+    border-radius: 10px;
+    padding-left: 30px;
+    height: 60px;
+    width: 265px;
 }
