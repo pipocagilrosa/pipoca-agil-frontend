@@ -1,33 +1,76 @@
 :root {
     --primary: #372149;
-    --primary-dark: 
-    --primary-light:
+    --primary-dark:
+        --primary-light:
 }
 
 .title {
-    width: 300px;
+    width: 493px;
+    height: 40px;
     color: var(--primary);
-    font-size: 26px;
+    font-size: 40px;
     font-style: normal;
     font-weight: 500;
-    line-height: 23px;
-    padding-left: 100px;
-    padding-top: 20px;
+    line-height: 48px;
+    padding-top: 80px;
 }
 
 .container {
-    height: 100%;
-    width: 1000px;
+    /* border: 1px solid red; */
+    width: 100%;
+    max-width: 1190px;
     margin: auto;
-    background-color: white;
-    position: relative;
 }
 
 .mat-card {
     display: flex;
     flex-direction: row;
-    width: 800px;
-    margin: auto;
+    height: 789px;
+}
+
+.mat-card-title-dark {
+    color: white;
+    font-size: 29px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 40px;
+    margin: 109px 74px 123px 45px;
+    width: 490px;
+    height: 32px;
+}
+
+.mat-card-content-dark {
+    background-color: #372149;
+    border-radius: 5px 0px 0px 5px;
+    height: 789px;
+    width: 670px;
+    padding: 0;
+}
+
+.mat-mdc-card-content:first-child {
+    padding-top: 0;
+}
+
+.mat-card-title-light {
+    padding-top: 35px;
+    padding-left: 90px;
+    padding-bottom: 10px;
+    font-size: 29px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 40px;
+}
+
+.mat-card-content-light {
+    background-color: #D9B7F4;
+    border-radius: 0px 5px 5px 0px;
+    height: 789px;
+    width: 527px;
+    padding: 0;
+}
+
+.mat-mdc-card-content:last-child {
+    padding-bottom: 0;
 }
 
 .container-info {
@@ -41,8 +84,9 @@
 
 .content-info-left-top {
     display: inline-flex;
-    height: 150px;
-    margin-bottom: 30px;
+    height: 106px;
+    width: 256px;
+    margin-left: 45px;
 }
 
 .content-info-one {
@@ -53,7 +97,10 @@
 
 .content-info-left-bottom {
     display: inline-flex;
-    height: 150px;
+    height: 106px;
+    width: 256px;
+    margin-left: 45px;
+    margin-top: 120px;
 }
 
 .content-info-two {
@@ -68,8 +115,8 @@
 
 .content-info-right-top {
     display: inline-flex;
-    height: 150px;
-    margin-bottom: 30px;
+    height: 106px;
+    width: 256px;
 }
 
 .content-info-three {
@@ -80,6 +127,9 @@
 
 .content-info-right-bottom {
     display: inline-flex;
+    height: 106px;
+    width: 256px;
+    margin-top: 120px;
 }
 
 .content-info-four {
@@ -90,20 +140,20 @@
 
 .subtitle {
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 500;
-    line-height: 15px;
-    margin-bottom: 10px;
+    line-height: 24px;
+    width: 190px;
 }
 
 .text {
     color: white;
-    font-size: 10px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 15px;
-    width: 153px;
+    line-height: 20px;
+    width: 208px;
 }
 
 .container-info-right {
@@ -122,8 +172,8 @@
 .circle {
     border-radius: 50%;
     background-color: #FDDC5C;
-    height: 26px;
-    width: 26px;
+    height: 40px;
+    width: 40px;
 }
 
 .top-circle {
@@ -144,57 +194,25 @@
 
 .number {
     color: var(--primary);
-    font-size: 12px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 500;
-    padding-left: 9px;
-    padding-top: 4px;
-}
-
-.mat-card-title-dark {
-    color: white;
-    font-size: 19px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 27px;
-    margin-bottom: 30px;
+    line-height: 24px;
     padding-left: 15px;
-    padding-top: 60px;
-    width: 300px;
-}
-
-.mat-card-content-dark {
-    background-color: #372149;
-    border-radius: 5px 0px 0px 5px;
-    height: 526px;
-    width: 447px;
-}
-
-.mat-card-title-light {
-    padding-top: 25px;
-    padding-left: 50px;
-    padding-bottom: 10px;
-}
-
-.mat-card-content-light {
-    background-color: #D9B7F4;
-    border-radius: 0px 5px 5px 0px;
-    height: 526px;
-    width: 350px;
+    padding-top: 8px;
 }
 
 .text-label {
-    margin-left: 50px;
+    margin-left: 90px;
     margin-bottom: 0px;
-    font-size: 12px;
-    line-height: 15px;
+    font-size: 16px;
     font-style: normal;
+    font-weight: 200;
+    line-height: 24px;
 }
 
 .mat-form-field {
     border-radius: 10px;
-    padding-left: 50px;
-    height: 56px;
-    width: 225px;
+    padding-left: 90px;
+    width: 343px;
 }
-
