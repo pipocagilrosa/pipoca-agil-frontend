@@ -15,9 +15,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { Register } from './main/register';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {FormsModule} from '@angular/forms';
-
 
 @NgModule({
   declarations: [
@@ -36,10 +38,11 @@ import {FormsModule} from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
+    MatButtonModule,
     MatCheckboxModule,
     FormsModule
   ],
-  providers: [],
+  providers: [Register],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

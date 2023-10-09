@@ -2,7 +2,7 @@
     <h2 class="title">Clube de assinantes</h2>
     <mat-card class="mat-card">
         <mat-card-content class="mat-card-content-dark">
-            <mat-card-title class="mat-card-title-dark">
+            <mat-card-title class="title">
                 Preencha o formulário e tenha
                 acesso aos conteúdos exclusivos
             </mat-card-title>
@@ -76,6 +76,8 @@
 
         </mat-card-content>
         <mat-card-content class="mat-card-content-light">
+            <div class="content-light">
+                <mat-card-title class="title">
             <div class="mat-card-content">
                 <mat-card-title class="mat-card-title-light">
                     Cadastro
@@ -83,35 +85,29 @@
                 <form action="">
                     <p class="text-label">Nome</p>
                     <mat-form-field class="mat-form-field">
-                        <input type="text" matInput>
+                        <input type="text" matInput [(ngModel)]="register.username" name="username" class="teste">
                     </mat-form-field>
                     <p class="text-label">E-mail</p>
                     <mat-form-field class="mat-form-field">
-                        <input type="text" matInput>
+                        <input type="text" matInput [(ngModel)]="register.email" name="email">
                     </mat-form-field>
                     <p class="text-label">Data de nascimento</p>
                     <mat-form-field class="mat-form-field">
-                        <input type="text" matInput>
+                        <input type="text" matInput [(ngModel)]="register.birthDate" name="birthDate">
                     </mat-form-field>
                     <p class="text-label">Senha</p>
                     <mat-form-field class="mat-form-field">
-                        <input type="text" matInput>
+                        <input type="text" matInput [(ngModel)]="register.password" name="password">
                     </mat-form-field>
                     <p class="text-label">Confirmar senha</p>
                     <mat-form-field class="mat-form-field">
-                        <input type="text" matInput>
+                        <input type="text" matInput name="password">
                     </mat-form-field>
-                    <section class="example-section">
-                        <mat-checkbox class="example-margin" 
-                        [(ngModel)]="checked">
-                        Li e aceito os Termos de Condições e Política de Privacidade
-                    </mat-checkbox>
-                    </section>
-                    <mat-button>
-                        
-                    </mat-button>
+                    <button mat-raised-button class="mat-button" (click)="teste()">
+                        <p class="mat-button-content">Cadastrar</p>
+                    </button>
                 </form>
-            </div>
+            </div>  
         </mat-card-content>
     </mat-card>
 </div>

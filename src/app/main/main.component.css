@@ -4,6 +4,8 @@
         --primary-light:
 }
 
+/* Card dark */
+
 .title {
     width: 493px;
     height: 40px;
@@ -12,7 +14,6 @@
     font-style: normal;
     font-weight: 500;
     line-height: 48px;
-    padding-top: 80px;
 }
 
 .container {
@@ -28,13 +29,13 @@
     height: 789px;
 }
 
-.mat-card-title-dark {
+.mat-card-content-dark .title {
     color: white;
     font-size: 29px;
     font-style: normal;
     font-weight: 500;
     line-height: 40px;
-    margin: 109px 74px 123px 45px;
+    margin: 95px 74px 123px 45px;
     width: 490px;
     height: 32px;
 }
@@ -208,15 +209,67 @@
     padding-top: 8px;
 }
 
+/*Card light*/
+
+.mat-card-content-light {
+    background-color: #D9B7F4;
+    border-radius: 0px 5px 5px 0px;
+    height: 789px;
+    width: 527px;
+    padding: 0;
+}
+
+.mat-mdc-card-content:last-child {
+    padding-bottom: 0;
+}
+
+.content-light {
+    width: 343px;
+    margin-top: 35px;
+    margin-left: 82.21px;
+}
+
+.mat-card-content-light .title {
+    font-size: 29px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 40px;
+}
+
 .text-label {
     margin-bottom: 0px;
     font-size: 16px;
     font-style: normal;
     font-weight: 200;
     line-height: 24px;
+    margin-bottom: 0;
 }
 
 .mat-form-field {
     border-radius: 10px;
+    width: 100%;
+}
+
+.mat-button {
+    margin: auto;
+    width: 100%;
+    height: 51px;
+}
+
+.mat-button-content {
+    color: white;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px;
+    margin-top: 12px;
+}
+
+.mat-mdc-raised-button:not(:disabled) {
+    background-color: #28A745;
+}
+
+.teste .mat-input-element {
+    font-size: 18px; 
     width: 343px;
 }
