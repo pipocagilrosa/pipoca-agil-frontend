@@ -17,8 +17,8 @@
                         <div class="content-info-one">
                             <h3 class="subtitle">Comunidade</h3>
                             <p class="text">
-                                Comunidade em torno do conteúdo 
-                                que pode  te levar a discussões,
+                                Comunidade em torno do conteúdo
+                                que pode te levar a discussões,
                                 grupos online específicos.
                             </p>
                         </div>
@@ -39,7 +39,7 @@
                             </p>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="container-info-right">
                     <div class="content-info-right-top">
@@ -73,35 +73,45 @@
                     </div>
                 </div>
             </div>
-                
+
         </mat-card-content>
         <mat-card-content class="mat-card-content-light">
-            <mat-card-title class="mat-card-title-light">
-                Cadastro
-            </mat-card-title>
-            <form action="">
-                <p class="text-label">Nome</p>
-                <mat-form-field class="mat-form-field">
-                    <input type="text" matInput>
-                </mat-form-field>
-                <p class="text-label">E-mail</p>
-                <mat-form-field class="mat-form-field">
-                    <input type="text" matInput>
-                </mat-form-field>
-                <p class="text-label">Data de nascimento</p>
-                <mat-form-field class="mat-form-field">
-                    <input type="text" matInput>
-                </mat-form-field>
-                <p class="text-label">Senha</p>
-                <mat-form-field class="mat-form-field">
-                    <input type="text" matInput>
-                </mat-form-field>
-                <p class="text-label">Confirmar senha</p>
-                <mat-form-field class="mat-form-field">
-                    <input type="text" matInput>
-                </mat-form-field>   
-
-            </form>
+            <div class="mat-card-content">
+                <mat-card-title class="mat-card-title-light">
+                    Cadastro
+                </mat-card-title>
+                <form action="">
+                    <p class="text-label">Nome</p>
+                    <mat-form-field class="mat-form-field">
+                        <input type="text" matInput>
+                    </mat-form-field>
+                    <p class="text-label">E-mail</p>
+                    <mat-form-field class="mat-form-field">
+                        <input type="text" matInput>
+                    </mat-form-field>
+                    <p class="text-label">Data de nascimento</p>
+                    <mat-form-field class="mat-form-field">
+                        <input type="text" matInput>
+                    </mat-form-field>
+                    <p class="text-label">Senha</p>
+                    <mat-form-field class="mat-form-field">
+                        <input type="text" matInput>
+                    </mat-form-field>
+                    <p class="text-label">Confirmar senha</p>
+                    <mat-form-field class="mat-form-field">
+                        <input type="text" matInput>
+                    </mat-form-field>
+                    <section class="example-section">
+                        <mat-checkbox class="example-margin" 
+                        [(ngModel)]="checked">
+                        Li e aceito os Termos de Condições e Política de Privacidade
+                    </mat-checkbox>
+                    </section>
+                    <mat-button>
+                        
+                    </mat-button>
+                </form>
+            </div>
         </mat-card-content>
     </mat-card>
 </div>

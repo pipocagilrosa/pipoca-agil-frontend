@@ -18,11 +18,11 @@
 .container {
     /* border: 1px solid red; */
     width: 100%;
-    max-width: 1190px;
+    max-width: 1200px;
     margin: auto;
 }
 
-.mat-card {
+.container > mat-card {
     display: flex;
     flex-direction: row;
     height: 789px;
@@ -43,7 +43,7 @@
     background-color: #372149;
     border-radius: 5px 0px 0px 5px;
     height: 789px;
-    width: 670px;
+    width: 671.68px;
     padding: 0;
 }
 
@@ -52,25 +52,31 @@
 }
 
 .mat-card-title-light {
-    padding-top: 35px;
-    padding-left: 90px;
     padding-bottom: 10px;
     font-size: 29px;
     font-style: normal;
     font-weight: 500;
     line-height: 40px;
+    width: 177.45px;
+    height: 31px;
 }
 
 .mat-card-content-light {
     background-color: #D9B7F4;
     border-radius: 0px 5px 5px 0px;
     height: 789px;
-    width: 527px;
+    width: 528.32px;
     padding: 0;
 }
 
 .mat-mdc-card-content:last-child {
     padding-bottom: 0;
+}
+
+.mat-card-content-light > div {
+    width: 344px;
+    height: 630px;
+    margin: 35px 103.11px 124px 82.21px;
 }
 
 .container-info {
@@ -203,7 +209,6 @@
 }
 
 .text-label {
-    margin-left: 90px;
     margin-bottom: 0px;
     font-size: 16px;
     font-style: normal;
@@ -213,6 +218,5 @@
 
 .mat-form-field {
     border-radius: 10px;
-    padding-left: 90px;
     width: 343px;
 }
