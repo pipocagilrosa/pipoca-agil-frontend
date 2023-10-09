@@ -8,7 +8,7 @@ import { RequestsService } from '../services/requests.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
-
+  
   constructor(public register: Register, private requests: RequestsService){
 
   }
@@ -16,4 +16,6 @@ export class MainComponent {
   teste() {
     this.requests.post(this.register);
   }
+
+  checked = false
 }
