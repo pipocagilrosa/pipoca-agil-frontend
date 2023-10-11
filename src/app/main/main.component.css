@@ -113,6 +113,7 @@
 .content-info-two {
     margin-left: 7px;
     width: 150px;
+    margin-top: 27px;
 }
 
 .content-info-right {
@@ -127,7 +128,7 @@
 }
 
 .content-info-three {
-    margin-top: 37px;
+    margin-top: 8px;
     margin-left: 7px;
     width: 150px;
 }
@@ -140,7 +141,7 @@
 }
 
 .content-info-four {
-    margin-top: 6px;
+    margin-top: 7px;
     margin-left: 7px;
     width: 150px;
 }
@@ -256,6 +257,7 @@
     margin: auto;
     width: 100%;
     height: 51px;
+    margin-top: 50px;
 }
 
 .mat-button-content {
