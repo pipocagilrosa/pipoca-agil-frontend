@@ -276,3 +276,11 @@
 .section {
     margin-bottom: 13px;
 }
+
+.mat-icon-button {
+    margin-right: 20px;
+}
+
+.mat-input {
+    margin-left: 15px;
+}

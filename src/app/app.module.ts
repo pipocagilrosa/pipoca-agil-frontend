@@ -9,16 +9,18 @@ import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 // Material
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
-import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
-import { Register } from './main/register';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { DialogAnimationComponent } from './template/dialog-animation/dialog-animation.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     HeaderComponent,
     NavComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
+    DialogAnimationComponent
   ],
   imports: [
     BrowserModule,
@@ -39,9 +42,11 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatIconModule,
     MatButtonModule,
     MatCheckboxModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatDialogModule
   ],
-  providers: [Register],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

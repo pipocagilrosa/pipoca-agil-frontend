@@ -9,13 +9,13 @@ export class RequestsService {
 
   constructor() { }
 
-  post(register: Register) {
-    axios.post('https://strapi-api-pipocarosa.onrender.com/api/auth/local/register', register 
+  async post(register: Register) {
+    await axios.post('https://strapi-api-pipocarosa.onrender.com/api/auth/local/register', register 
     ).then(function (response) {
-      console.log(response);
+      return response
     })
     .catch(function (error) {
-      console.log(error);
+      console.log(error)
     });
   }
 

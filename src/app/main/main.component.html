@@ -81,25 +81,31 @@
                     Cadastro
                 </mat-card-title>
                 <form action="">
-                    <p class="text-label">Nome</p>
+                    <p class="text-label">Nome *</p>
                     <mat-form-field class="mat-form-field">
-                        <input type="text" matInput [(ngModel)]="register.username" name="username" class="teste">
+                        <input type="text" matInput [formControl]="register.username" class="mat-input" name="username">
                     </mat-form-field>
-                    <p class="text-label">E-mail</p>
+                    <p class="text-label">E-mail *</p>
                     <mat-form-field class="mat-form-field">
-                        <input type="text" matInput [(ngModel)]="register.email" name="email">
+                        <input type="text" matInput [formControl]="register.email" class="mat-input" name="email">
                     </mat-form-field>
-                    <p class="text-label">Data de nascimento</p>
+                    <p class="text-label">Data de nascimento *</p>
                     <mat-form-field class="mat-form-field">
-                        <input type="text" matInput [(ngModel)]="register.birthDate" name="birthDate">
+                        <input type="text" matInput [formControl]="register.birthDate" class="mat-input" name="birthDate">
                     </mat-form-field>
-                    <p class="text-label">Senha</p>
+                    <p class="text-label">Senha *</p>
                     <mat-form-field class="mat-form-field">
-                        <input type="text" matInput [(ngModel)]="register.password" name="password">
+                        <input type="text" matInput [formControl]="register.password" name="password" class="mat-input" [type]="hide ? 'password' : 'text'">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" class="mat-icon-button">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                          </button>
                     </mat-form-field>
                     <p class="text-label">Confirmar senha</p>
                     <mat-form-field class="mat-form-field">
-                        <input type="text" matInput name="password">
+                        <input type="text" matInput name="password" [formControl]="register.passConfirm" class="mat-input" [type]="hideConfirm ? 'password' : 'text'">
+                        <button mat-icon-button matSuffix (click)="hideConfirm = !hideConfirm" class="mat-icon-button">
+                            <mat-icon>{{hideConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
+                          </button>
                     </mat-form-field>
                     <!-- <section class="section">
                         <mat-checkbox>
