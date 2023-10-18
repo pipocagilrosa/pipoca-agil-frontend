@@ -27,17 +27,25 @@ export class MainComponent {
   }
 
   async teste() {
-    this.validator.openDialog("0ms","0ms")
-    // let registerY: Register = {
-    //   username : this.register.username.value,
-    //   email : this.register.email.value,
-    //   birthDate : this.register.birthDate.value,
-    //   password : this.register.password.value,
-    //   passConfirm : this.register.passConfirm.value
-    // }
-    // let resp:any
-    // resp = await this.requests.post(registerY);
-    // console.log(resp)
+    // this.validator.openDialog("0ms","0ms")
+    let registerY: Register = {
+      username : this.register.username.value,
+      email : this.register.email.value,
+      birthDate : this.register.birthDate.value,
+      password : this.register.password.value,
+      passConfirm : this.register.passConfirm.value
+    }
+
+    this.requests.testPost(registerY).subscribe(
+      {
+        next: (data) => {
+          this.validator.openDialog("0ms","0ms")
+        },
+        error: (error) => {
+          console.log(error.status)
+        }
+      }
+    )
   }
 
   checked = false
