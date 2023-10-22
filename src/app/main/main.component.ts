@@ -17,8 +17,11 @@ export class MainComponent {
   register: Register = {
     username : new FormControl('', [Validators.required]),
     email : new FormControl('', [Validators.required]),
-    birthDate : new FormControl('', [Validators.required]),
-    password : new FormControl('', [Validators.required]),
+    birthDate : new FormControl(null, [
+      Validators.required,
+      Validators.pattern(/^\d{2}\/\d{2}\/\d{4}$/)
+    ]),
+    password : new FormControl<Date | null>(null, [Validators.required]),
     passConfirm : new FormControl('', [Validators.required])
   } 
 
@@ -26,7 +29,24 @@ export class MainComponent {
 
   }
 
-  async teste() {
+  getErrorMessage(x: any) {
+    if(x.hasError('required')) {
+      return 'Campo obrigatório'} 
+      else if(x.hasError('pattern')) {
+      return 'Formato de data inválido'
+    } else {
+      return ''
+    }
+  }
+
+  teste(){
+    let valueSelected = this.register.birthDate.value
+    let selected =  this.register.birthDate
+    console.log(typeof valueSelected)
+
+  }
+
+  async teste1() {
     // this.validator.openDialog("0ms","0ms")
     let registerY: Register = {
       username : this.register.username.value,
