@@ -1,53 +1,65 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Register } from './register';
 import { RequestsService } from '../services/requests.service';
-import { AbstractControl, FormControl, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ValidatorService } from '../services/validator.service';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css'],
-})  
-export class MainComponent {
+})
+export class MainComponent implements OnInit {
 
+  accountDetails!: FormGroup
   hide = true
   hideConfirm = true
 
-  register: Register = {
-    username : new FormControl('', [Validators.required]),
-    email : new FormControl('', [Validators.required]),
-    birthDate : new FormControl<Date | null>(null, [
-      Validators.required,
-      Validators.pattern(/^\d{2}\/\d{2}\/\d{4}$/),
-      this.ageValidator(18)
-    ]),
-    password : new FormControl(null, [
-      Validators.required,
-      Validators.minLength(6),
-      this.specialValidator  
-    ]),
-    passConfirm : new FormControl('', [
-      Validators.required,
-      Validators.minLength(6),
-      this.specialValidator
-    ])
-  } 
+  register!: Register
 
-  constructor(private requests: RequestsService, private validator: ValidatorService) {
+  constructor(private requests: RequestsService, private validator: ValidatorService, private fb: FormBuilder) {
 
   }
 
+  validationMessages = {
+    'name': [
+      {
+        type: 'required', message: 'Campo obrigatório'
+      },
+      {
+        type: 'pattern', message: 'Não são permitidos caracteres especiais'
+      },
+      {
+        type: 'maxlength', message: 'Limite de caracteres'
+      }
+    ]
+  }
+
+  ngOnInit(): void {
+    this.createForm()
+  }
+
+  createForm() {
+    this.accountDetails = this.fb.group({
+      name: new FormControl('', Validators.compose([
+        Validators.maxLength(10),
+        Validators.pattern('^[a-zA-Z ]*$'),
+        Validators.required
+      ]))
+    })
+  }
+
   getErrorMessage(x: any) {
-    if(x.hasError('required')) {
-      return 'Campo obrigatório'} 
-      else if(x.hasError('pattern')) {
+    if (x.hasError('required')) {
+      return 'Campo obrigatório'
+    }
+    else if (x.hasError('pattern')) {
       return 'Formato de data inválido'
-    } else if(x.hasError('ageTooYoung')) {
+    } else if (x.hasError('ageTooYoung')) {
       return 'É necessário ter no mínimo 18 anos'
-    } else if(x.hasError('minlength')) {
+    } else if (x.hasError('minlength')) {
       return 'Mínimo de 6 caracteres'
-    } else if(x.hasError('noSpecialCharacter')) {
+    } else if (x.hasError('noSpecialCharacter')) {
       return 'A senha deve conter pelo menos 1 caracter especial'
     }
     return ''
@@ -55,9 +67,9 @@ export class MainComponent {
 
 
 
-  teste(){
+  teste() {
     let valueSelected = this.register.birthDate.value
-    let selected =  this.register.birthDate
+    let selected = this.register.birthDate
     console.log(typeof valueSelected)
 
   }
@@ -70,21 +82,21 @@ export class MainComponent {
       const diffDay = today.getDate() - birthDate.getDate()
       let age = today.getFullYear() - birthDate.getFullYear()
 
-      if(diffMonth < 0 || diffMonth === 0 && diffDay < 0) {
+      if (diffMonth < 0 || diffMonth === 0 && diffDay < 0) {
         age--
       }
 
       console.log(age)
-      if(age < minAge) {
-        return {ageTooYoung: true}
-        }
+      if (age < minAge) {
+        return { ageTooYoung: true }
+      }
       return null
     }
   }
 
   specialValidator(control: AbstractControl) {
-     const password = control.value
-     if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(password)) {
+    const password = control.value
+    if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(password)) {
       return { noSpecialCharacter: true };
     }
     return null;
@@ -93,17 +105,17 @@ export class MainComponent {
   async teste1() {
     // this.validator.openDialog("0ms","0ms")
     let registerY: Register = {
-      username : this.register.username.value,
-      email : this.register.email.value,
-      birthDate : this.register.birthDate.value,
-      password : this.register.password.value,
-      passConfirm : this.register.passConfirm.value
+      username: this.register.username.value,
+      email: this.register.email.value,
+      birthDate: this.register.birthDate.value,
+      password: this.register.password.value,
+      passConfirm: this.register.passConfirm.value
     }
 
     this.requests.testPost(registerY).subscribe(
       {
         next: (data) => {
-          this.validator.openDialog("0ms","0ms")
+          this.validator.openDialog("0ms", "0ms")
         },
         error: (error) => {
           console.log(error.status)

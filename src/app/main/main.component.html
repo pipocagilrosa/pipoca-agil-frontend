@@ -80,37 +80,54 @@
                 <mat-card-title class="mat-card-title-light">
                     Cadastro
                 </mat-card-title>
-                <form action="">
-                    <p class="text-label">Nome *</p>
+                <form action="" [formGroup]="accountDetails">
+                    
                     <mat-form-field class="mat-form-field">
-                        <input type="text" matInput [formControl]="register.username" class="mat-input" name="username">
-                        <mat-error *ngIf="register.username.invalid">{{getErrorMessage(register.username)}}</mat-error>
+                        <mat-label>
+                            Nome
+                        </mat-label>
+                        <input type="text" matInput class="mat-input" name="name" formControlName="name">
+                        <mat-error *ngFor="let validation of validationMessages.name">
+                            <mat-error *ngIf="accountDetails.get('name').hasError(validation.type)">{{validation.message}}</mat-error>
+                        </mat-error>
                     </mat-form-field>
-                    <p class="text-label">E-mail *</p>
+                    
                     <mat-form-field class="mat-form-field">
-                        <input type="text" matInput [formControl]="register.email" class="mat-input" name="email">
-                        <mat-error *ngIf="register.email.invalid">{{getErrorMessage(register.email)}}</mat-error>
+                        <mat-label>
+                            E-mail
+                        </mat-label>
+                        <input type="text" matInput class="mat-input" name="email">
+                        <mat-error></mat-error>
                     </mat-form-field>
-                    <p class="text-label">Data de nascimento *</p>
+                    
                     <mat-form-field class="mat-form-field">
-                        <input type="text" matInput [formControl]="register.birthDate" class="mat-input" name="birthDate" placeholder="MM/DD/AAAA">
-                        <mat-error *ngIf="register.birthDate.invalid">{{getErrorMessage(register.birthDate)}}</mat-error>
+                        <mat-label>
+                            Data de nascimento
+                        </mat-label>
+                        <input type="text" matInput class="mat-input" name="birthDate" placeholder="MM/DD/AAAA">
+                        <mat-error></mat-error>
                     </mat-form-field>
-                    <p class="text-label">Senha *</p>
+                    
                     <mat-form-field class="mat-form-field">
-                        <input type="text" matInput [formControl]="register.password" name="password" class="mat-input" [type]="hide ? 'password' : 'text'">
+                        <mat-label>
+                            Senha
+                        </mat-label>
+                        <input type="text" matInput name="password" class="mat-input" [type]="hide ? 'password' : 'text'">
                         <button mat-icon-button matSuffix (click)="hide = !hide" class="mat-icon-button">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                           </button>
-                          <mat-error *ngIf="register.password.invalid">{{getErrorMessage(register.password)}}</mat-error>
+                          <mat-error></mat-error>
                     </mat-form-field>
-                    <p class="text-label">Confirmar senha *</p>
+                    
                     <mat-form-field class="mat-form-field">
-                        <input type="text" matInput name="password" [formControl]="register.passConfirm" class="mat-input" [type]="hideConfirm ? 'password' : 'text'">
+                        <mat-label>
+                            Confirmar Senha
+                        </mat-label>
+                        <input type="text" matInput name="password" class="mat-input" [type]="hideConfirm ? 'password' : 'text'">
                         <button mat-icon-button matSuffix (click)="hideConfirm = !hideConfirm" class="mat-icon-button">
                             <mat-icon>{{hideConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
                           </button>
-                          <mat-error *ngIf="register.passConfirm.invalid">{{getErrorMessage(register.passConfirm)}}</mat-error>
+                          <mat-error></mat-error>
                     </mat-form-field>
                     <!-- <section class="section">
                         <mat-checkbox>

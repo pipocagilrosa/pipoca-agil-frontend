@@ -245,6 +245,7 @@
 }
 
 .mat-form-field {
+    margin-top: 18px;
     border-radius: 10px;
     width: 100%;
 }
