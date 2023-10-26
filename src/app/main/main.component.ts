@@ -4,6 +4,7 @@ import { RequestsService } from '../services/requests.service';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ValidatorService } from '../services/validator.service';
 
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -17,6 +18,8 @@ export class MainComponent implements OnInit {
 
   register!: Register
 
+  birthDate: any
+
   constructor(private requests: RequestsService, private validator: ValidatorService, private fb: FormBuilder) {
 
   }
@@ -24,10 +27,10 @@ export class MainComponent implements OnInit {
   validationMessages = {
     'name': [
       {
-        type: 'required', message: 'Campo obrigatório'
+        type: 'pattern', message: 'Não são permitidos caracteres especiais'
       },
       {
-        type: 'pattern', message: 'Não são permitidos caracteres especiais'
+        type: 'required', message: 'Campo obrigatório'
       },
       {
         type: 'maxlength', message: 'Limite de caracteres'
