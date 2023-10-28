@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Register } from './register';
 import { RequestsService } from '../services/requests.service';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { ValidatorService } from '../services/validator.service';
 
 
@@ -27,13 +27,26 @@ export class MainComponent implements OnInit {
   validationMessages = {
     'name': [
       {
-        type: 'pattern', message: 'Não são permitidos caracteres especiais'
+        type: 'required', message: 'Campo obrigatório'
       },
+      {
+        type: 'invalidChar', message: 'Não são permitidos caracteres especiais'
+      },
+      {
+        type: 'notSpace', message: 'Por favor, digite nome e sobrenome'
+      }
+    ],
+    'email': [
+      {
+        type: 'required', message: 'Campo obrigatório'
+      }
+    ],
+    'birthDate': [
       {
         type: 'required', message: 'Campo obrigatório'
       },
       {
-        type: 'maxlength', message: 'Limite de caracteres'
+        type: 'ageTooYoung', message: 'Usuário deve ser maior de 18 anos'
       }
     ]
   }
@@ -44,12 +57,39 @@ export class MainComponent implements OnInit {
 
   createForm() {
     this.accountDetails = this.fb.group({
-      name: new FormControl('', Validators.compose([
-        Validators.maxLength(10),
-        Validators.pattern('^[a-zA-Z ]*$'),
+      name: new FormControl('', [
+        Validators.required,
+        this.spaceValidator(),
+        this.characterValidator()
+      ]),
+      email: new FormControl('', [
         Validators.required
-      ]))
+      ]),
+      birthDate: new FormControl('',[
+        Validators.required,
+        this.ageValidator(18)
+      ])
     })
+  }
+
+  spaceValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const regex = /\s/
+      if(!regex.test(control.value)) {
+        return {notSpace : true}
+      }
+      return null   
+    }
+  }
+
+  characterValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const regex = /^[a-zA-Z ]*$/
+      if(!regex.test(control.value)) {
+        return {invalidChar : true}
+      }
+      return null
+    }
   }
 
   getErrorMessage(x: any) {
@@ -68,8 +108,6 @@ export class MainComponent implements OnInit {
     return ''
   }
 
-
-
   teste() {
     let valueSelected = this.register.birthDate.value
     let selected = this.register.birthDate
@@ -87,9 +125,7 @@ export class MainComponent implements OnInit {
 
       if (diffMonth < 0 || diffMonth === 0 && diffDay < 0) {
         age--
-      }
-
-      console.log(age)
+      } 
       if (age < minAge) {
         return { ageTooYoung: true }
       }
@@ -97,7 +133,7 @@ export class MainComponent implements OnInit {
     }
   }
 
-  specialValidator(control: AbstractControl) {
+  specialValidatorx(control: AbstractControl) {
     const password = control.value
     if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(password)) {
       return { noSpecialCharacter: true };

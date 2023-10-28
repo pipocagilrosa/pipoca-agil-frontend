@@ -86,30 +86,39 @@
                         <mat-label>
                             Nome
                         </mat-label>
-                        <input type="text" matInput class="mat-input" name="name" formControlName="name" required
-                            maxlength="32">
-                        <mat-error *ngFor="let validation of validationMessages.name">
-                            <mat-error *ngIf="accountDetails.get('name')?.hasError(validation.type) && (accountDetails.get('name')?.dirty || accountDetails.get('name')?.touched)">{{validation.message}}</mat-error>
+                        <input type="text" matInput class="mat-input" name="name" formControlName="name" required maxlength="32">
+                        <mat-error
+                            *ngIf="accountDetails.get('name')?.hasError(validationMessages.name[0].type)">{{validationMessages.name[0].message}}
+                        </mat-error>
+                        <mat-error
+                            *ngIf="accountDetails.get('name')?.hasError(validationMessages.name[1].type)">{{validationMessages.name[1].message}}
+                        </mat-error>
+                        <mat-error
+                            *ngIf="accountDetails.get('name')?.hasError(validationMessages.name[2].type)">{{validationMessages.name[2].message}}
                         </mat-error>
                     </mat-form-field>
 
                     <mat-form-field class=" mat-form-field">
-                                <mat-label>
-                                    E-mail
-                                </mat-label>
-                                <input type="text" matInput class="mat-input" name="email" required maxlength="40">
-                                <mat-error></mat-error>
+                        <mat-label>
+                            E-mail
+                        </mat-label>
+                        <input type="text" matInput class="mat-input" name="email" formControlName="email" required maxlength="40">
+                        <mat-error
+                            *ngIf="accountDetails.get('email')?.hasError(validationMessages.email[0].type)">{{validationMessages.email[0].message}}
+                        </mat-error>
                     </mat-form-field>
 
                     <mat-form-field class="mat-form-field">
                         <mat-label>
                             Data de nascimento
                         </mat-label>
-                        <input type="text" matInput class="mat-input" name="birthDate" [matDatepicker]="picker"
-                            required>
-                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-datepicker #picker></mat-datepicker>
-                        <mat-error></mat-error>
+                        <input type="text" matInput class="mat-input" name="birthDate" formControlName="birthDate" required>
+                        <mat-error
+                            *ngIf="accountDetails.get('birthDate')?.hasError(validationMessages.birthDate[0].type)">{{validationMessages.birthDate[0].message}}
+                        </mat-error>
+                        <mat-error
+                            *ngIf="accountDetails.get('birthDate')?.hasError(validationMessages.birthDate[1].type)">{{validationMessages.birthDate[1].message}}
+                        </mat-error>
                     </mat-form-field>
 
                     <mat-form-field class="mat-form-field">
