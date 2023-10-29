@@ -39,6 +39,9 @@ export class MainComponent implements OnInit {
     'email': [
       {
         type: 'required', message: 'Campo obrigatório'
+      },
+      {
+        type: 'email', message: 'Favor preencher no formato exemplo@email.com'
       }
     ],
     'birthDate': [
@@ -47,7 +50,27 @@ export class MainComponent implements OnInit {
       },
       {
         type: 'ageTooYoung', message: 'Usuário deve ser maior de 18 anos'
+      },
+      {
+        type: 'invalidFormat', message: 'Formato inválido! Favor preencher DD/MM/AAAA'
       }
+    ],
+    'password': [
+      {
+        type: 'required', message: 'Campo obrigatório'
+      },
+      {
+        type: 'minlength', message: 'Limite de caracteres 6 a 20'
+      },
+      {
+        type: 'maxlength', message: 'Limite de caracteres 6 a 20'
+      }
+    ],
+    'confirmPassword': [
+      {
+        type: 'required', message: 'Campo obrigatório'
+      },
+
     ]
   }
 
@@ -63,11 +86,21 @@ export class MainComponent implements OnInit {
         this.characterValidator()
       ]),
       email: new FormControl('', [
-        Validators.required
+        Validators.required,
+        Validators.email
       ]),
       birthDate: new FormControl('',[
         Validators.required,
+        this.formatValidator(),
         this.ageValidator(18)
+      ]),
+      password: new FormControl('',[
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(20)
+      ]),
+      confirmPassword: new FormControl('',[
+        Validators.required,
       ])
     })
   }
@@ -92,20 +125,27 @@ export class MainComponent implements OnInit {
     }
   }
 
-  getErrorMessage(x: any) {
-    if (x.hasError('required')) {
-      return 'Campo obrigatório'
+  formatValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const regexLet = /^[a-zA-Z ]*$/
+      const regexForm = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/
+      if(regexLet.test(control.value)) {
+        return {invalidFormat : true}
+      }
+      if(!regexForm.test(control.value)) {
+        return {invalidFormat : true}
+      }
+      return null
     }
-    else if (x.hasError('pattern')) {
-      return 'Formato de data inválido'
-    } else if (x.hasError('ageTooYoung')) {
-      return 'É necessário ter no mínimo 18 anos'
-    } else if (x.hasError('minlength')) {
-      return 'Mínimo de 6 caracteres'
-    } else if (x.hasError('noSpecialCharacter')) {
-      return 'A senha deve conter pelo menos 1 caracter especial'
+  }
+
+  equalValidator(pass: string): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      if(!pass === control.value) {
+        return {unequalPassword : true}
+      }
+      return null
     }
-    return ''
   }
 
   teste() {
@@ -131,14 +171,6 @@ export class MainComponent implements OnInit {
       }
       return null
     }
-  }
-
-  specialValidatorx(control: AbstractControl) {
-    const password = control.value
-    if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(password)) {
-      return { noSpecialCharacter: true };
-    }
-    return null;
   }
 
   async teste1() {

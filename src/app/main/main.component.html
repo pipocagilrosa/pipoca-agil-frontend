@@ -106,6 +106,9 @@
                         <mat-error
                             *ngIf="accountDetails.get('email')?.hasError(validationMessages.email[0].type)">{{validationMessages.email[0].message}}
                         </mat-error>
+                        <mat-error
+                            *ngIf="accountDetails.get('email')?.hasError(validationMessages.email[1].type)">{{validationMessages.email[1].message}}
+                        </mat-error>
                     </mat-form-field>
 
                     <mat-form-field class="mat-form-field">
@@ -119,6 +122,9 @@
                         <mat-error
                             *ngIf="accountDetails.get('birthDate')?.hasError(validationMessages.birthDate[1].type)">{{validationMessages.birthDate[1].message}}
                         </mat-error>
+                        <mat-error
+                            *ngIf="accountDetails.get('birthDate')?.hasError(validationMessages.birthDate[2].type)">{{validationMessages.birthDate[2].message}}
+                        </mat-error>
                     </mat-form-field>
 
                     <mat-form-field class="mat-form-field">
@@ -126,11 +132,19 @@
                             Senha
                         </mat-label>
                         <input type="text" matInput name="password" class="mat-input"
-                            [type]="hide ? 'password' : 'text'" required maxlength="20">
+                            [type]="hide ? 'password' : 'text'" required formControlName="password" maxlength="30">
                         <button mat-icon-button matSuffix (click)="hide = !hide" class="mat-icon-button">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
-                        <mat-error></mat-error>
+                        <mat-error
+                            *ngIf="accountDetails.get('password')?.hasError(validationMessages.password[0].type)">{{validationMessages.password[0].message}}
+                        </mat-error>
+                        <mat-error
+                            *ngIf="accountDetails.get('password')?.hasError(validationMessages.password[1].type)">{{validationMessages.password[1].message}}
+                        </mat-error>
+                        <mat-error
+                            *ngIf="accountDetails.get('password')?.hasError(validationMessages.password[2].type)">{{validationMessages.password[2].message}}
+                        </mat-error>
                     </mat-form-field>
 
                     <mat-form-field class="mat-form-field">
@@ -138,11 +152,13 @@
                             Confirmar Senha
                         </mat-label>
                         <input type="text" matInput name="password" class="mat-input"
-                            [type]="hideConfirm ? 'password' : 'text'" required maxlength="20">
+                            [type]="hideConfirm ? 'password' : 'text'" required maxlength="30" formControlName="confirmPassword">
                         <button mat-icon-button matSuffix (click)="hideConfirm = !hideConfirm" class="mat-icon-button">
                             <mat-icon>{{hideConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
-                        <mat-error></mat-error>
+                        <mat-error
+                            *ngIf="accountDetails.get('confirmPassword')?.hasError(validationMessages.confirmPassword[0].type)">{{validationMessages.confirmPassword[0].message}}
+                        </mat-error>
                     </mat-form-field>
                     <!-- <section class="section">
                         <mat-checkbox>
