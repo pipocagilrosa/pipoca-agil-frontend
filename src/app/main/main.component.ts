@@ -20,8 +20,10 @@ export class MainComponent implements OnInit {
 
   birthDate: any
 
-  constructor(private requests: RequestsService, private validator: ValidatorService, private fb: FormBuilder) {
+  passwordUpdate!: string
 
+  constructor(private requests: RequestsService, private validator: ValidatorService, private fb: FormBuilder) {
+    
   }
 
   validationMessages = {
@@ -70,12 +72,18 @@ export class MainComponent implements OnInit {
       {
         type: 'required', message: 'Campo obrigatório'
       },
-
+      {
+        type: 'unequalPassword', message: 'A senha deve ser a mesma'
+      }
     ]
   }
 
   ngOnInit(): void {
     this.createForm()
+    this.accountDetails.controls['password'].valueChanges.subscribe((newValue) => {
+      this.passwordUpdate = newValue
+    })
+    console.log(this.passwordUpdate)
   }
 
   createForm() {
@@ -101,6 +109,7 @@ export class MainComponent implements OnInit {
       ]),
       confirmPassword: new FormControl('',[
         Validators.required,
+        this.equalValidator()
       ])
     })
   }
@@ -139,9 +148,9 @@ export class MainComponent implements OnInit {
     }
   }
 
-  equalValidator(pass: string): ValidatorFn {
+  equalValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-      if(!pass === control.value) {
+      if(this.passwordUpdate != control.value) {
         return {unequalPassword : true}
       }
       return null
@@ -149,26 +158,28 @@ export class MainComponent implements OnInit {
   }
 
   teste() {
-    let valueSelected = this.register.birthDate.value
-    let selected = this.register.birthDate
-    console.log(typeof valueSelected)
+    // let valueSelected = this.register.birthDate.value
+    // let selected = this.register.birthDate
+    // console.log(typeof valueSelected)
 
   }
 
   ageValidator(minAge: number) {
     return (control: AbstractControl) => {
-      const birthDate = new Date(control.value)
+      const birthDate = new Date(control.value.split)
       const today = new Date()
-      const diffMonth = today.getMonth() - birthDate.getMonth()
-      const diffDay = today.getDate() - birthDate.getDate()
-      let age = today.getFullYear() - birthDate.getFullYear()
+      console.log(birthDate)
+      console.log(today.toLocaleDateString())
+      // const diffMonth = today.getMonth() - birthDate.getMonth()
+      // const diffDay = today.getDate() - birthDate.getDate()
+      // let age = today.getFullYear() - birthDate.getFullYear()
 
-      if (diffMonth < 0 || diffMonth === 0 && diffDay < 0) {
-        age--
-      } 
-      if (age < minAge) {
-        return { ageTooYoung: true }
-      }
+      // if (diffMonth < 0 || diffMonth === 0 && diffDay < 0) {
+      //   age--
+      // } 
+      // if (age < minAge) {
+      //   return { ageTooYoung: true }
+      // }
       return null
     }
   }

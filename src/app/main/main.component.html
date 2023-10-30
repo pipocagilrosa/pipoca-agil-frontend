@@ -159,6 +159,9 @@
                         <mat-error
                             *ngIf="accountDetails.get('confirmPassword')?.hasError(validationMessages.confirmPassword[0].type)">{{validationMessages.confirmPassword[0].message}}
                         </mat-error>
+                        <mat-error
+                            *ngIf="accountDetails.get('confirmPassword')?.hasError(validationMessages.confirmPassword[1].type)">{{validationMessages.confirmPassword[1].message}}
+                        </mat-error>
                     </mat-form-field>
                     <!-- <section class="section">
                         <mat-checkbox>
