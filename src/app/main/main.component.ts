@@ -158,6 +158,9 @@ export class MainComponent implements OnInit {
   }
 
   teste() {
+    console.log(new Date())
+    console.log(typeof this.accountDetails.get('birthDate')!.value)
+    console.log(document.getElementById('birthDate'))
     // let valueSelected = this.register.birthDate.value
     // let selected = this.register.birthDate
     // console.log(typeof valueSelected)
@@ -166,20 +169,23 @@ export class MainComponent implements OnInit {
 
   ageValidator(minAge: number) {
     return (control: AbstractControl) => {
-      const birthDate = new Date(control.value.split)
+      const partsDate = control.value.split('/')
+      const day = parseInt(partsDate[0], 10);
+      const month = parseInt(partsDate[1], 10) - 1; 
+      const year = parseInt(partsDate[2], 10);
+      const birthDate = new Date(year, month, day)
       const today = new Date()
-      console.log(birthDate)
-      console.log(today.toLocaleDateString())
-      // const diffMonth = today.getMonth() - birthDate.getMonth()
-      // const diffDay = today.getDate() - birthDate.getDate()
-      // let age = today.getFullYear() - birthDate.getFullYear()
 
-      // if (diffMonth < 0 || diffMonth === 0 && diffDay < 0) {
-      //   age--
-      // } 
-      // if (age < minAge) {
-      //   return { ageTooYoung: true }
-      // }
+      const diffMonth = today.getMonth() - birthDate.getMonth()
+      const diffDay = today.getDate() - birthDate.getDate()
+      let age = today.getFullYear() - birthDate.getFullYear()
+
+      if (diffMonth < 0 || diffMonth === 0 && diffDay < 0) {
+        age--
+      } 
+      if (age < minAge) {
+        return { ageTooYoung: true }
+      }
       return null
     }
   }

@@ -86,7 +86,8 @@
                         <mat-label>
                             Nome
                         </mat-label>
-                        <input type="text" matInput class="mat-input" name="name" formControlName="name" required maxlength="32">
+                        <input type="text" matInput class="mat-input" name="name" formControlName="name" required
+                            maxlength="32">
                         <mat-error
                             *ngIf="accountDetails.get('name')?.hasError(validationMessages.name[0].type)">{{validationMessages.name[0].message}}
                         </mat-error>
@@ -102,7 +103,8 @@
                         <mat-label>
                             E-mail
                         </mat-label>
-                        <input type="text" matInput class="mat-input" name="email" formControlName="email" required maxlength="40">
+                        <input type="text" matInput class="mat-input" name="email" formControlName="email" required
+                            maxlength="40">
                         <mat-error
                             *ngIf="accountDetails.get('email')?.hasError(validationMessages.email[0].type)">{{validationMessages.email[0].message}}
                         </mat-error>
@@ -112,10 +114,11 @@
                     </mat-form-field>
 
                     <mat-form-field class="mat-form-field">
-                        <mat-label>
+                        <mat-label for="birhtDate">
                             Data de nascimento
                         </mat-label>
-                        <input type="text" matInput class="mat-input" name="birthDate" formControlName="birthDate" required>
+                        <input type="text" matInput class="mat-input" name="birthDate" formControlName="birthDate"
+                            id="birthDate" required>
                         <mat-error
                             *ngIf="accountDetails.get('birthDate')?.hasError(validationMessages.birthDate[0].type)">{{validationMessages.birthDate[0].message}}
                         </mat-error>
@@ -152,7 +155,8 @@
                             Confirmar Senha
                         </mat-label>
                         <input type="text" matInput name="password" class="mat-input"
-                            [type]="hideConfirm ? 'password' : 'text'" required maxlength="30" formControlName="confirmPassword">
+                            [type]="hideConfirm ? 'password' : 'text'" required maxlength="30"
+                            formControlName="confirmPassword">
                         <button mat-icon-button matSuffix (click)="hideConfirm = !hideConfirm" class="mat-icon-button">
                             <mat-icon>{{hideConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
