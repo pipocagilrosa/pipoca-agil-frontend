@@ -18,12 +18,10 @@ export class MainComponent implements OnInit {
 
   register!: Register
 
-  birthDate: any
-
   passwordUpdate!: string
 
   constructor(private requests: RequestsService, private validator: ValidatorService, private fb: FormBuilder) {
-    
+
   }
 
   validationMessages = {
@@ -97,17 +95,17 @@ export class MainComponent implements OnInit {
         Validators.required,
         Validators.email
       ]),
-      birthDate: new FormControl('',[
+      birthDate: new FormControl('', [
         Validators.required,
         this.formatValidator(),
         this.ageValidator(18)
       ]),
-      password: new FormControl('',[
+      password: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(20)
       ]),
-      confirmPassword: new FormControl('',[
+      confirmPassword: new FormControl('', [
         Validators.required,
         this.equalValidator()
       ])
@@ -116,19 +114,19 @@ export class MainComponent implements OnInit {
 
   spaceValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-      const regex = /\s/
-      if(!regex.test(control.value)) {
-        return {notSpace : true}
+      const regex = /^\w+\s+\w+$/
+      if (!regex.test(control.value)) {
+        return { notSpace: true }
       }
-      return null   
+      return null
     }
   }
 
   characterValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const regex = /^[a-zA-Z ]*$/
-      if(!regex.test(control.value)) {
-        return {invalidChar : true}
+      if (!regex.test(control.value)) {
+        return { invalidChar: true }
       }
       return null
     }
@@ -138,11 +136,11 @@ export class MainComponent implements OnInit {
     return (control: AbstractControl): ValidationErrors | null => {
       const regexLet = /^[a-zA-Z ]*$/
       const regexForm = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/
-      if(regexLet.test(control.value)) {
-        return {invalidFormat : true}
+      if (regexLet.test(control.value)) {
+        return { invalidFormat: true }
       }
-      if(!regexForm.test(control.value)) {
-        return {invalidFormat : true}
+      if (!regexForm.test(control.value)) {
+        return { invalidFormat: true }
       }
       return null
     }
@@ -150,28 +148,18 @@ export class MainComponent implements OnInit {
 
   equalValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-      if(this.passwordUpdate != control.value) {
-        return {unequalPassword : true}
+      if (this.passwordUpdate != control.value) {
+        return { unequalPassword: true }
       }
       return null
     }
   }
-
-  teste() {
-    console.log(new Date())
-    console.log(typeof this.accountDetails.get('birthDate')!.value)
-    console.log(document.getElementById('birthDate'))
-    // let valueSelected = this.register.birthDate.value
-    // let selected = this.register.birthDate
-    // console.log(typeof valueSelected)
-
-  }
-
+  
   ageValidator(minAge: number) {
     return (control: AbstractControl) => {
       const partsDate = control.value.split('/')
       const day = parseInt(partsDate[0], 10);
-      const month = parseInt(partsDate[1], 10) - 1; 
+      const month = parseInt(partsDate[1], 10) - 1;
       const year = parseInt(partsDate[2], 10);
       const birthDate = new Date(year, month, day)
       const today = new Date()
@@ -182,7 +170,7 @@ export class MainComponent implements OnInit {
 
       if (diffMonth < 0 || diffMonth === 0 && diffDay < 0) {
         age--
-      } 
+      }
       if (age < minAge) {
         return { ageTooYoung: true }
       }
@@ -190,20 +178,19 @@ export class MainComponent implements OnInit {
     }
   }
 
-  async teste1() {
-    // this.validator.openDialog("0ms","0ms")
-    let registerY: Register = {
-      username: this.register.username.value,
-      email: this.register.email.value,
-      birthDate: this.register.birthDate.value,
-      password: this.register.password.value,
-      passConfirm: this.register.passConfirm.value
+  send() {
+    this.register = {
+      username: this.accountDetails.value.name,
+      email: this.accountDetails.value.email,
+      password: this.accountDetails.value.password,
+      birthDate: this.accountDetails.value.birthDate
     }
 
-    this.requests.testPost(registerY).subscribe(
+    this.requests.testPost(this.register).subscribe(
       {
         next: (data) => {
           this.validator.openDialog("0ms", "0ms")
+          console.log(data)
         },
         error: (error) => {
           console.log(error.status)

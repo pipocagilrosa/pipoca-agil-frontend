@@ -10,7 +10,7 @@ import { catchError, map, retry } from 'rxjs/operators';
 })
 export class RequestsService {
 
-  url = 'https://strapi-api-pipocarosa.onrender.com/api/auth/local/register'
+  url = 'https://back-piporosa.onrender.com/user/signup'
   constructor( private http: HttpClient ) { }
 
   async post(register: Register) {
