@@ -179,24 +179,25 @@ export class MainComponent implements OnInit {
   }
 
   send() {
-    this.register = {
-      username: this.accountDetails.value.name,
-      email: this.accountDetails.value.email,
-      password: this.accountDetails.value.password,
-      birthDate: this.accountDetails.value.birthDate
-    }
+    this.validator.validatorMessage('success')
+    // this.register = {
+    //   username: this.accountDetails.value.name,
+    //   email: this.accountDetails.value.email,
+    //   password: this.accountDetails.value.password,
+    //   birthDate: this.accountDetails.value.birthDate
+    // }
 
-    this.requests.testPost(this.register).subscribe(
-      {
-        next: (data) => {
-          this.validator.openDialog("0ms", "0ms")
-          console.log(data)
-        },
-        error: (error) => {
-          console.log(error.status)
-        }
-      }
-    )
+    // this.requests.testPost(this.register).subscribe(
+    //   {
+    //     next: (data) => {
+    //       this.validator.openDialog("0ms", "0ms")
+    //       console.log(data)
+    //     },
+    //     error: (error) => {
+    //       console.log(error.status)
+    //     }
+    //   }
+    // )
   }
 
   checked = false
