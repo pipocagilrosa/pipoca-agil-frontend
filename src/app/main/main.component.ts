@@ -3,6 +3,7 @@ import { Register } from './register';
 import { RequestsService } from '../services/requests.service';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { ValidatorService } from '../services/validator.service';
+import { throwIfEmpty } from 'rxjs';
 
 
 @Component({
@@ -179,22 +180,26 @@ export class MainComponent implements OnInit {
   }
 
   send() {
-    this.validator.validatorMessage('success')
-    // this.register = {
-    //   username: this.accountDetails.value.name,
-    //   email: this.accountDetails.value.email,
-    //   password: this.accountDetails.value.password,
-    //   birthDate: this.accountDetails.value.birthDate
-    // }
+    let ret
+    this.register = {
+      username: this.accountDetails.value.name,
+      email: this.accountDetails.value.email,
+      password: this.accountDetails.value.password,
+      birthDate: this.accountDetails.value.birthDate
+    }
 
+    ret = this.requests.post(this.register)
+    console.log(this.register)
+    console.log(JSON.stringify(this.register))
     // this.requests.testPost(this.register).subscribe(
     //   {
     //     next: (data) => {
-    //       this.validator.openDialog("0ms", "0ms")
+    //       this.validator.validatorMessage('unsuccess')
     //       console.log(data)
     //     },
     //     error: (error) => {
-    //       console.log(error.status)
+    //       this.validator.validatorMessage('success')
+    //       console.log(error)
     //     }
     //   }
     // )
