@@ -115,7 +115,7 @@ export class MainComponent implements OnInit {
 
   spaceValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-      const regex = /^\w+\s+\w+$/
+      const regex = /^[A-Z][a-z]*( [A-Z][a-z]*)+$/
       if (!regex.test(control.value)) {
         return { notSpace: true }
       }
@@ -182,7 +182,7 @@ export class MainComponent implements OnInit {
   send() {
     let ret
     this.register = {
-      username: this.accountDetails.value.name,
+      name: this.accountDetails.value.name,
       email: this.accountDetails.value.email,
       password: this.accountDetails.value.password,
       birthDate: this.accountDetails.value.birthDate
