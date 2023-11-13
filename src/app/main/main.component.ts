@@ -188,21 +188,19 @@ export class MainComponent implements OnInit {
       birthDate: this.accountDetails.value.birthDate
     }
 
-    ret = this.requests.post(this.register)
     console.log(this.register)
-    console.log(JSON.stringify(this.register))
-    // this.requests.testPost(this.register).subscribe(
-    //   {
-    //     next: (data) => {
-    //       this.validator.validatorMessage('unsuccess')
-    //       console.log(data)
-    //     },
-    //     error: (error) => {
-    //       this.validator.validatorMessage('success')
-    //       console.log(error)
-    //     }
-    //   }
-    // )
+    this.requests.testPost(this.register).subscribe(
+      {
+        next: (data) => {
+          this.validator.validatorMessage('success')
+          console.log(data)
+        },
+        error: (error) => {
+          this.validator.validatorMessage('unsuccess')
+          console.log(error)
+        }
+      }
+    )
   }
 
   checked = false
