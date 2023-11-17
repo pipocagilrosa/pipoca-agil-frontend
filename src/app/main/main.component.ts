@@ -94,7 +94,8 @@ export class MainComponent implements OnInit {
       ]),
       email: new FormControl('', [
         Validators.required,
-        Validators.email
+        Validators.email,
+        // this.validarNumero()
       ]),
       birthDate: new FormControl('', [
         Validators.required,
@@ -113,9 +114,21 @@ export class MainComponent implements OnInit {
     })
   }
 
+  // validarNumero() {
+  //   return (control: AbstractControl): ValidationErrors | null => {
+  //     const valor = control.value;
+  //     const numerosApenas = valor.replace(/[^0-9]/, '');
+
+  //     control.setValue(numerosApenas, { emitEvent: false });
+
+  //     return null;
+  //   }
+
+  // }
+
   spaceValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-      const regex = /^[A-Z][a-z]*( [A-Z][a-z]*)+$/
+      const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ]+(\s[A-Za-zÀ-ÖØ-öø-ÿ]+)+$/
       if (!regex.test(control.value)) {
         return { notSpace: true }
       }
@@ -125,7 +138,7 @@ export class MainComponent implements OnInit {
 
   characterValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-      const regex = /^[a-zA-Z ]*$/
+      const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]*$/
       if (!regex.test(control.value)) {
         return { invalidChar: true }
       }
@@ -155,7 +168,7 @@ export class MainComponent implements OnInit {
       return null
     }
   }
-  
+
   ageValidator(minAge: number) {
     return (control: AbstractControl) => {
       const partsDate = control.value.split('/')
@@ -179,6 +192,18 @@ export class MainComponent implements OnInit {
     }
   }
 
+  blockLetters(event: KeyboardEvent) {
+    const regex = /[0-9\/]/; 
+    
+    if (event.key === 'Backspace') {
+      return;
+    }
+
+    if (!regex.test(event.key)) {
+      event.preventDefault();
+    }
+  }
+
   send() {
     let ret
     this.register = {
@@ -188,7 +213,7 @@ export class MainComponent implements OnInit {
       birthDate: this.accountDetails.value.birthDate
     }
 
-    if(this.accountDetails.valid) {
+    if (this.accountDetails.valid) {
       this.requests.testPost(this.register).subscribe(
         {
           next: (data) => {

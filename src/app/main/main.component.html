@@ -113,12 +113,12 @@
                         </mat-error>
                     </mat-form-field>
 
-                    <mat-form-field class="mat-form-field">
+                    <mat-form-field class="mat-form-field" >
                         <mat-label for="birhtDate">
                             Data de nascimento
                         </mat-label>
                         <input type="text" matInput class="mat-input" name="birthDate" formControlName="birthDate"
-                            id="birthDate" required>
+                            id="birthDate" required maxlength="10" (keydown)="blockLetters($event)">
                         <mat-error
                             *ngIf="accountDetails.get('birthDate')?.hasError(validationMessages.birthDate[0].type)">{{validationMessages.birthDate[0].message}}
                         </mat-error>
