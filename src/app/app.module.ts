@@ -9,7 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
-import { MainComponent } from './main/main.component';
+import { RegisterComponent } from './main-home/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -34,7 +34,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     HeaderComponent,
     NavComponent,
     FooterComponent,
-    MainComponent,
+    RegisterComponent,
     DialogAnimationComponent
   ],
   imports: [
