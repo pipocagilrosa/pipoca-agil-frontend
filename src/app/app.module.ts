@@ -6,10 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
-import { NavComponent } from './nav/nav.component';
-import { FooterComponent } from './footer/footer.component';
-import { RegisterComponent } from './main-home/register/register.component';
+import { HeaderComponent } from './template/header/header.component';
+import { NavComponent } from './template/nav/nav.component';
+import { FooterComponent } from './template/footer/footer.component';
+import { RegisterComponent } from './homepage/main-home/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -25,6 +25,7 @@ import { DialogAnimationComponent } from './template/dialog-animation/dialog-ani
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { ViewDataComponent } from './your-data/view-data/view-data.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {MatNativeDateModule} from '@angular/material/core';
     NavComponent,
     FooterComponent,
     RegisterComponent,
-    DialogAnimationComponent
+    DialogAnimationComponent,
+    ViewDataComponent
   ],
   imports: [
     BrowserModule,

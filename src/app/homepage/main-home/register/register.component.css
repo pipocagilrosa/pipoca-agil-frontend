@@ -28,6 +28,7 @@
     display: flex;
     flex-direction: row;
     height: 789px;
+    border-radius: 10px;
 }
 
 .mat-card-content-dark .title {
@@ -43,7 +44,7 @@
 
 .mat-card-content-dark {
     background-color: #372149;
-    border-radius: 5px 0px 0px 5px;
+    border-radius: 10px 0px 0px 10px;
     height: 789px;
     width: 672px;
     padding: 0;
@@ -204,7 +205,7 @@
 
 .mat-card-content-light {
     background-color: #D9B7F4;
-    border-radius: 0px 5px 5px 0px;
+    border-radius: 0px 10px 10px 0px;
     height: 789px;
     width: 528px;
     padding: 0;

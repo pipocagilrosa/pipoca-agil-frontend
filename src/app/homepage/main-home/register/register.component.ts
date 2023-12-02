@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Register } from '../../homepage/register';
-import { RequestsService } from '../../services/requests.service';
+import { Register } from '../../register';
+import { RequestsService } from '../../../services/requests.service';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
-import { ValidatorService } from '../../services/validator.service';
+import { ValidatorService } from '../../../services/validator.service';
 import { throwIfEmpty } from 'rxjs';
 
 

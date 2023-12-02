@@ -1,0 +1,17 @@
+.container {
+    background-color: #E9ECEF;
+    width: 1170px;
+    height: 680px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 24px;
+}
+
+.title {
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 48px;
+    margin-top: 80px;
+    margin-left: 102px;
+}
