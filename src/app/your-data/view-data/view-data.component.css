@@ -8,6 +8,11 @@
     border-radius: 24px;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
 .title {
     font-size: 40px;
     font-style: normal;
@@ -24,12 +29,19 @@
     margin-bottom: 50px;
 }
 
-.text-data {
-    margin-bottom: 60px;
+.subtitle-box {
+    width: 280px;
+}
+
+.text {
+    margin-top: 10px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
 }
 
 .content {
-    background-color: aqua;
     height: 340px;
     margin-top: 100px;
     width: 500px;
