@@ -4,13 +4,14 @@
     height: 680px;
     margin: auto;
     margin-top: 100px;
-    padding: 80px 96px 104px 118px;
+    padding: 80px 118px 104px 96px;
     border-radius: 24px;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .title {
@@ -18,7 +19,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: 48px;
-    margin-left: 7px;
+    margin-bottom: 0px;
 }
 
 .subtitle {
@@ -29,16 +30,24 @@
     margin-bottom: 50px;
 }
 
-.subtitle-box {
+.box-subtitle {
     width: 280px;
 }
 
+.box-icon {
+    padding-top: 8px;
+}
+
 .text {
-    margin-top: 10px;
+    margin-top: 9px;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 24px;
+}
+
+.person-icon {
+    padding-left: 80px;
 }
 
 .content {
