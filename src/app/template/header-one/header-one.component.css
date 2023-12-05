@@ -1,0 +1,10 @@
+.container {
+    background-color: var(--primary);
+    width: 1349px;
+    height: 690px;
+}
+
+.menu {
+    padding: 40px 120px 0px 120px;
+    background-color: aqua;
+}
