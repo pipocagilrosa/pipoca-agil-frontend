@@ -5,6 +5,10 @@ import { HomepageComponent } from './views/homepage/homepage.component';
 const routes: Routes = [
   {
     path: "",
+    redirectTo: "home", pathMatch: "full"
+  },
+  {
+    path: "home",
     component: HomepageComponent,
   }
 ];
