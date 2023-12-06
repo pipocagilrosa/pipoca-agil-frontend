@@ -195,7 +195,7 @@ export class RegisterComponent implements OnInit {
   blockLetters(event: KeyboardEvent) {
     const regex = /[0-9\/]/; 
     
-    if (event.key === 'Backspace') {
+    if (event.key === 'Backspace' || event.key === 'Tab') {
       return;
     }
 
