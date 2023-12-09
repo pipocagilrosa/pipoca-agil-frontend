@@ -5,8 +5,14 @@
 }
 
 .menu {
-    padding: 0px 120px 0px 120px;
+    width: 1200px;
+    margin: auto;
     background-color: var(--primary);
+}
+
+a {
+    display: inline-block;
+    vertical-align: top;
 }
 
 .box-link-text {
@@ -14,9 +20,12 @@
     padding-left: 93px;
 }
 
+.link-img {
+    margin-right: 93px;
+}
+
 .link-text {
     color: white;
-    padding-right: 45px;
     text-decoration: none;
     font-size: 16px;
     font-style: normal;
@@ -24,14 +33,20 @@
     line-height: 24px;
 }
 
+.n-border-text {
+    margin-right: 42px;
+    margin-top: 52px;
+}
+
 .border-text {
-    border: 1px solid #F4E197;
+    border: 1px solid var(--secondary);
     border-radius: 100px;
     padding: 10px 30px;
+    margin-top: 40px;
 }
 
 .login-text {
-    color: #F4E197;
+    color: var(--secondary);
     ;
     font-size: 16px;
     font-style: normal;
@@ -43,7 +58,7 @@
 
 .create-text {
     color: var(--primary);
-    background-color: #F4E197;
+    background-color: var(--secondary);
     font-size: 18px;
     font-style: normal;
     font-weight: 600;

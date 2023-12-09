@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomepageComponent } from './views/homepage/homepage.component';
+import { HomepageViewComponent } from './views/homepage-view/homepage-view.component';
 
 const routes: Routes = [
   {
@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: "home",
-    component: HomepageComponent,
+    component: HomepageViewComponent,
   }
 ];
 

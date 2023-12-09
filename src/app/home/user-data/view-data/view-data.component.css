@@ -45,8 +45,10 @@
     line-height: 24px;
 }
 
-.person-icon {
-    padding-left: 80px;
+.link-icon {
+    display: inline-block;
+    text-decoration: none;
+    margin-left: 80px;
 }
 
 .content {

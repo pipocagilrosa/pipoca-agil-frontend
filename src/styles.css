@@ -1,6 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
     --primary: #372149;
+    --primary-dark: #51405F;
+    --primary-light: #D9B7F4;
+    --secondary: #FDDC5C;
+    --secondary-dark: #D9BF5B;
+    --secondary-light: #F4E197;
 }
 
 html, body { height: 100%; }
