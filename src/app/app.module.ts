@@ -28,6 +28,7 @@ import { ViewDataComponent } from './home/user-data/view-data/view-data.componen
 import { HomepageViewComponent } from './views/homepage-view/homepage-view.component';
 import { LoginViewComponent } from './views/login-view/login-view.component';
 import { UserDataViewComponent } from './views/user-data-view/user-data-view.component';
+import { LoginComponent } from './home/login/login.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { UserDataViewComponent } from './views/user-data-view/user-data-view.com
     ViewDataComponent,
     HomepageViewComponent,
     LoginViewComponent,
-    UserDataViewComponent
+    UserDataViewComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

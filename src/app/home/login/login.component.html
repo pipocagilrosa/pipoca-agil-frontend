@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="content-dark">
+        <img src="assets/login.png" alt="" class="img-welcome">
+    </div>
+    <div class="content-light">
+        <img src="assets/logo-pipoca-agil-pequeno.png" alt="" class="img-logo">
+        <h2 class="title">
+            Bem-vindo de volta!
+        </h2>
+        <p class="text-font subtitle">
+            Insira seus dados para fazer login
+        </p>
+        <form action="" class="user-data">
+            <mat-form-field class="mat-form-field">
+                <mat-label>
+                    E-mail
+                </mat-label>
+                <input type="text" matInput class="mat-input" name="email" required maxlength="32">
+            </mat-form-field>
+            <mat-form-field class="mat-form-field">
+                <mat-label>
+                    Senha
+                </mat-label>
+                <input type="text" matInput class="mat-input" name="password" required maxlength="32">
+                <button mat-icon-button matSuffix (click)="hide = !hide" class="mat-icon-button">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-hint align="start"><a href="" class="text-font text-link forgout-password">
+                    Esqueci minha senha?
+                </a></mat-hint>
+            </mat-form-field>
+        </form>
+        <button mat-raised-button class="mat-button">
+            <p class="mat-button-content">Entrar</p>
+        </button>
+        <div>
+            <a href="" class="text-font text-link text-register">
+                Ainda não tem uma conta?  Crie aqui
+            </a>
+        </div>
+    </div>
+</div>

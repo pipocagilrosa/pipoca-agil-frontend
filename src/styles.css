@@ -6,6 +6,19 @@
     --secondary: #FDDC5C;
     --secondary-dark: #D9BF5B;
     --secondary-light: #F4E197;
+    --success: #28A745;
+    --danger: #DC3545;
+    --warning: #C85A53;
+    --info: #1CCCE8;
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-400: #ced4da;
+    --gray-500: #adb5bd;
+    --gray-600: #adb5bd;
+    --gray-700: #495057;
+    --gray-800: #343a40;
+    --gray-900: #212529;
 }
 
 html, body { height: 100%; }

@@ -259,7 +259,7 @@
 }
 
 .mat-mdc-raised-button:not(:disabled) {
-    background-color: #28A745;
+    background-color: var(--success);
 }
 
 .section {
