@@ -214,7 +214,7 @@ export class RegisterComponent implements OnInit {
     }
 
     if (this.accountDetails.valid) {
-      this.requests.testPost(this.register).subscribe(
+      this.requests.post(this.register, 'user/signup').subscribe(
         {
           next: (data) => {
             this.validator.validatorMessage('success')
