@@ -36,10 +36,10 @@ export class RequestsService {
   }
 
   post<T>(param: T, path: string): Observable<T> {
-    return this.http.post<T>(this.url, param, {headers: this.httpHeaders})
+    return this.http.post<T>(`${this.url}${path}`, param, {headers: this.httpHeaders})
   }
-
-  get<T>(path: string, auth: string): Observable<T> {
+ 
+  get<T>(auth: string, path: string): Observable<T> {
     return this.http.get<T>(`${this.url}user/${path}/profile`, {headers: this.setAuthorization(auth)})
   }
 

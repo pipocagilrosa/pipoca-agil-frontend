@@ -13,9 +13,19 @@
 
 .content-light {
     position: relative;
-    padding-left: 85px;
+    padding-left: 6%;
     background-color: var(--gray-200);
     flex: 40%;
+}
+
+.center-container {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+.center-content {
+    margin-top: -20%;
 }
 
 .text-font {
@@ -34,7 +44,6 @@
 
 .img-logo {
     margin-left: 100px;
-    margin-top: 30px;
 }
 
 .title {
@@ -44,10 +53,13 @@
     font-weight: 500;
     line-height: 48px;
     margin-top: 16px;
+    width: 230px;
 }
 
 .subtitle {
     color: var(--gray-800);
+    width: 180px;
+    margin-left: 5px;
 }
 
 .user-data {
