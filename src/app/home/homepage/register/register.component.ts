@@ -4,6 +4,7 @@ import { RequestsService } from '../../../services/requests.service';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { ValidatorService } from '../../../services/validator.service';
 import { throwIfEmpty } from 'rxjs';
+import { ShareService } from 'src/app/services/share.service';
 
 
 @Component({
@@ -21,7 +22,12 @@ export class RegisterComponent implements OnInit {
 
   passwordUpdate!: string
 
-  constructor(private requests: RequestsService, private validator: ValidatorService, private fb: FormBuilder) {
+  constructor(
+    private requests: RequestsService, 
+    private validator: ValidatorService, 
+    private fb: FormBuilder,
+    private shareService: ShareService 
+  ) {
 
   }
 
@@ -78,6 +84,11 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.shareService.scrollRequested$.subscribe((target) => {
+      if(target === 'registerComponent') {
+        this.scrollToRegister()
+      }
+    })
     this.createForm()
     this.accountDetails.controls['password'].valueChanges.subscribe((newValue) => {
       this.passwordUpdate = newValue
@@ -112,6 +123,13 @@ export class RegisterComponent implements OnInit {
         this.equalValidator()
       ])
     })
+  }
+
+  scrollToRegister() {
+    const divContainer = document.getElementById('registerComponent')
+    if(divContainer) {
+      divContainer.scrollIntoView({behavior: 'smooth'})
+    }
   }
 
   // validarNumero() {

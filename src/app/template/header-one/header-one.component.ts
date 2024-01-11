@@ -1,3 +1,4 @@
+import { ShareService } from './../../services/share.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,4 +9,10 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
 
+  constructor(private shareService: ShareService) {
+
+  }
+  scrollToRegister() {
+    this.shareService.requestScroll('registerComponent')
+  }
 }
