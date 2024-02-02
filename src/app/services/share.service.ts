@@ -6,7 +6,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 })
 export class ShareService {
 
-  private scrollSubject = new Subject<string>
+  private scrollSubject = new BehaviorSubject<string | null>(null)
 
   scrollRequested$ = this.scrollSubject.asObservable()
 

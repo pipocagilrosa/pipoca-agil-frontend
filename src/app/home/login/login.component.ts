@@ -62,4 +62,9 @@ export class LoginComponent implements OnInit {
     })
 
   }
+
+  scrollToRegister() {
+    this.router.navigate(['home'])
+    this.shareService.requestScroll('registerComponent')
+  }
 }
