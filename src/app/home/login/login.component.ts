@@ -42,25 +42,28 @@ export class LoginComponent implements OnInit {
   }
 
   enter() {
-    let auth
-    let sub
-    this.register = {
-      email: this.loginData.value.email,
-      password: this.loginData.value.password
-    }
-    this.requests.post(this.register, "auth/login").subscribe({
-      next: (data: any) => {
-        console.log()
-        auth = data.token
-        sub = data.sub
-        this.shareService.requestAccess(auth, sub)
-        this.router.navigate(['user-data'])
-      },
-      error: (err) => {
-        console.log(err)
+    if(this.loginData.valid) {
+      let auth
+      let sub
+      this.register = {
+        email: this.loginData.value.email,
+        password: this.loginData.value.password
       }
-    })
-
+      this.requests.post(this.register, "auth/login").subscribe({
+        next: (data: any) => {
+          console.log()
+          auth = data.token
+          sub = data.sub
+          this.shareService.requestAccess(auth, sub)
+          this.router.navigate(['user-data'])
+        },
+        error: (err) => {
+          console.log(err)
+        }
+      })
+    } else {
+      this.loginData.markAllAsTouched()
+    }
   }
 
   scrollToRegister() {

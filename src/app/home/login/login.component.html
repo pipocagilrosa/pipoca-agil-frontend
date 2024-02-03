@@ -17,7 +17,8 @@
                         <mat-label>
                             E-mail
                         </mat-label>
-                        <input type="text" matInput class="mat-input" name="email" required maxlength="40" formControlName="email">
+                        <input type="text" matInput class="mat-input" name="email" formControlName="email" required
+                            maxlength="40">
                     </mat-form-field>
                     <mat-form-field class="mat-form-field">
                         <mat-label>
@@ -30,10 +31,13 @@
                         <mat-hint align="start"><a href="" class="text-font text-link forgout-password">Esqueci minha senha?
                             </a></mat-hint>
                     </mat-form-field>
+                    <button mat-raised-button class="mat-button" (click)="enter()">
+                        <p class="mat-button-content">Entrar</p>
+                    </button>
+                    <mat-error *ngIf="loginData.hasError('required')">
+                        Teste
+                    </mat-error>
                 </form>
-                <button mat-raised-button class="mat-button" (click)="enter()">
-                    <p class="mat-button-content">Entrar</p>
-                </button>
             </div>
         </div>
         <div>
