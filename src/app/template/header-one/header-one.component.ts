@@ -13,6 +13,6 @@ export class HeaderComponent {
 
   }
   scrollToRegister() {
-    this.shareService.requestScroll('registerComponent')
+    this.shareService.requestScroll('samePage')
   }
 }

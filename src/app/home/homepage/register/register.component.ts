@@ -25,8 +25,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private requests: RequestsService, 
     private validator: ValidatorService, 
-    private fb: FormBuilder,
-    private shareService: ShareService 
+    private fb: FormBuilder, 
   ) {
 
   }
@@ -84,11 +83,6 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.shareService.scrollRequested$.subscribe((target) => {
-      if(target === 'registerComponent') {
-        this.scrollToRegister()
-      }
-    })
     this.createForm()
     this.accountDetails.controls['password'].valueChanges.subscribe((newValue) => {
       this.passwordUpdate = newValue
@@ -123,13 +117,6 @@ export class RegisterComponent implements OnInit {
         this.equalValidator()
       ])
     })
-  }
-
-  scrollToRegister() {
-    const divContainer = document.getElementById('registerComponent')
-    if(divContainer) {
-      divContainer.scrollIntoView({behavior: 'smooth'})
-    }
   }
 
   // validarNumero() {
