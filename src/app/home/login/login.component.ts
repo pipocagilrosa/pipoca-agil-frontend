@@ -61,9 +61,7 @@ export class LoginComponent implements OnInit {
           console.log(err)
         }
       })
-    } else {
-      this.loginData.markAllAsTouched()
-    }
+    } 
   }
 
   scrollToRegister() {

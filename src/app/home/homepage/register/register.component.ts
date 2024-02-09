@@ -87,7 +87,6 @@ export class RegisterComponent implements OnInit {
     this.accountDetails.controls['password'].valueChanges.subscribe((newValue) => {
       this.passwordUpdate = newValue
     })
-    console.log(this.passwordUpdate)
   }
 
   createForm() {
