@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
   register: Register
 
   loginData!: FormGroup
+  
+  loginError: boolean = false
 
   constructor(
     private requests: RequestsService,
@@ -28,6 +30,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm()
+    this.loginError = this.shareService.isLoginError();
+    this.shareService.clearLoginError(); 
   }
 
   createForm() {
@@ -41,6 +45,10 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  handleLoginError(): void {
+    this.shareService.handleLoginError();
+  }
+
   enter() {
     if(this.loginData.valid) {
       let auth
@@ -51,14 +59,14 @@ export class LoginComponent implements OnInit {
       }
       this.requests.post(this.register, "auth/login").subscribe({
         next: (data: any) => {
-          console.log()
           auth = data.token
           sub = data.sub
           this.shareService.requestAccess(auth, sub)
           this.router.navigate(['user-data'])
         },
         error: (err) => {
-          console.log(err)
+          this.handleLoginError()
+          window.location.reload();
         }
       })
     } 
