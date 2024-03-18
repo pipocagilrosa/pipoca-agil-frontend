@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAnimationComponent } from '../template/dialog-animation/dialog-animation.component';
+import { DialogChangesComponent } from '../template/dialog-changes/dialog-changes.component';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,16 @@ export class ValidatorService {
       //   message: text,
       //   image: img
       // }
+    })
+  }
+
+  openChangesDialog(enterAnimationDuration: string, exitAnimationDuration: string) {
+    this.dialog.open(DialogChangesComponent, {
+      panelClass: 'custom-container',
+      width: '625px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+      autoFocus: false
     })
   }
   

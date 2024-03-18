@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { Register } from 'src/app/register';
 import { RequestsService } from 'src/app/services/requests.service';
 import { ShareService } from 'src/app/services/share.service';
+import { ValidatorService } from 'src/app/services/validator.service';
 
 @Component({
   selector: 'app-view-data',
@@ -16,7 +17,8 @@ export class ViewDataComponent implements OnInit, OnDestroy {
 
   constructor(
     private requests: RequestsService,
-    private shareService: ShareService
+    private shareService: ShareService,
+    private validatorService: ValidatorService
   ) {
     this.register = new Register()
   }
@@ -48,5 +50,9 @@ export class ViewDataComponent implements OnInit, OnDestroy {
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
+  }
+
+  deleteAccount() {
+    this.validatorService.openChangesDialog("100ms", "100ms")
   }
 }
