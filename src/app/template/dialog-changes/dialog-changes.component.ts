@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { RequestsService } from 'src/app/services/requests.service';
 import { ShareService } from 'src/app/services/share.service';
+import { ValidatorService } from 'src/app/services/validator.service';
 
 @Component({
   selector: 'app-dialog-changes',
@@ -16,21 +17,21 @@ export class DialogChangesComponent implements OnInit {
   constructor(
     private requests: RequestsService,
     private shareService: ShareService,
+    private validatorService: ValidatorService,
     public dialogRef: MatDialogRef<DialogChangesComponent>
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    this.shareService.accessRequired$.subscribe((values) => {
-      this.auth = values![0],
-      this.sub = values![1]
-    })
+    this.auth = sessionStorage.getItem("auth")!
+    this.sub = sessionStorage.getItem("sub")!
   }
 
   deleteAccount() {
     this.requests.delete(this.sub, this.auth, "disable").subscribe({
       next: (data) => {
-        console.log(data)
         this.dialogRef.close()
+        this.validatorService.openConfirmDialog("100ms", "100ms")
+        sessionStorage.clear()
       },
       error: (err) => {
         console.log(err)

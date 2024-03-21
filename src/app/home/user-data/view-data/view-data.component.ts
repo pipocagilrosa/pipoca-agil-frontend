@@ -26,10 +26,8 @@ export class ViewDataComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     let auth!: string
     let sub!: string
-    this.shareService.accessRequired$.subscribe((values) => {
-      auth = values![0]
-      sub = values![1]
-    })
+    auth = sessionStorage.getItem("auth")!
+    sub = sessionStorage.getItem("sub")!
     let response = this.requests.get<Register>(auth, sub).subscribe({
       next: (data) => {
         this.register = {

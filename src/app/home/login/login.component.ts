@@ -11,6 +11,10 @@ import { ShareService } from 'src/app/services/share.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  private readonly authenticationKey = 'auth';
+  private readonly subKey = 'sub';
+
   hide = true
 
   register: Register
@@ -61,7 +65,8 @@ export class LoginComponent implements OnInit {
         next: (data: any) => {
           auth = data.token
           sub = data.sub
-          this.shareService.requestAccess(auth, sub)
+          sessionStorage.setItem(this.authenticationKey, auth)
+          sessionStorage.setItem(this.subKey, sub)
           this.router.navigate(['user-data'])
         },
         error: (err) => {

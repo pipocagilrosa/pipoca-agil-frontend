@@ -12,19 +12,10 @@ export class ShareService {
 
   scrollRequested$ = this.scrollSubject.asObservable()
 
-  private accessSubject = new BehaviorSubject<string[] | null>(null)
-  
-  accessRequired$ = this.accessSubject.asObservable()
-
   constructor() { }
 
   requestScroll(target: string) {
     this.scrollSubject.next(target)
-  }
-
-  requestAccess(auth: string, sub: string) {
-    let values = [auth, sub]
-    this.accessSubject.next(values)
   }
 
   handleLoginError(): void {
