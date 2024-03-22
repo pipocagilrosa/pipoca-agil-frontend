@@ -15,6 +15,11 @@ export class ValidatorService {
 
   validatorMessage(type: string) {
     let time = "100ms"
+    if(type == "unsuccess") {
+      this.successMessage = false
+    } else {
+      this.successMessage = true
+    }
       this.openDialog(time, time)
   }
 
