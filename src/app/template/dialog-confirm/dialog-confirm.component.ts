@@ -1,3 +1,4 @@
+import { DialogRef } from '@angular/cdk/dialog';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class DialogConfirmComponent {
 
+  constructor(
+    public dialogRef: DialogRef<DialogConfirmComponent>
+  ) { }
+
+  close() {
+    this.dialogRef.close()
+  }
 }

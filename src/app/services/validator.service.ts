@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogAnimationComponent } from '../template/dialog-animation/dialog-animation.component';
 import { DialogChangesComponent } from '../template/dialog-changes/dialog-changes.component';
 import { DialogConfirmComponent } from '../template/dialog-confirm/dialog-confirm.component';
+import { Dialog } from '@angular/cdk/dialog';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class ValidatorService {
 
   successMessage: boolean = true
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private dialogTest: Dialog) { }
 
   validatorMessage(type: string) {
     let time = "100ms"
@@ -20,34 +21,31 @@ export class ValidatorService {
     } else {
       this.successMessage = true
     }
-      this.openDialog(time, time)
+      this.openDialog()
   }
 
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string) {
-    this.dialog.open(DialogAnimationComponent, {
+  openDialog() {
+    this.dialogTest.open(DialogAnimationComponent, {
+      panelClass: 'test',
       width: '494px',
-      enterAnimationDuration,
-      exitAnimationDuration,
-      autoFocus: false,
+      height: '314px',
+      
     })
   }
 
-  openChangesDialog(enterAnimationDuration: string, exitAnimationDuration: string) {
-    this.dialog.open(DialogChangesComponent, {
+  openChangesDialog() {
+    this.dialogTest.open(DialogChangesComponent, {
+      panelClass: 'test',
       width: '625px',
-      enterAnimationDuration,
-      exitAnimationDuration,
-      autoFocus: false
+      height: '374px'
     })
   }
 
-  openConfirmDialog(enterAnimationDuration: string, exitAnimationDuration: string) {
-    this.dialog.open(DialogConfirmComponent, {
+  openConfirmDialog() {
+    this.dialogTest.open(DialogConfirmComponent, {
+      panelClass: 'test',
       width: '625px',
-      height: '374px',
-      enterAnimationDuration,
-      exitAnimationDuration,
-      autoFocus: false
+      height: '374px'
     })
   }
 }

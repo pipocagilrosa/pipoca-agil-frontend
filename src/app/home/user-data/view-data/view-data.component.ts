@@ -51,6 +51,6 @@ export class ViewDataComponent implements OnInit, OnDestroy {
   }
 
   deleteAccount() {
-    this.validatorService.openChangesDialog("100ms", "100ms")
+    this.validatorService.openChangesDialog()
   }
 }

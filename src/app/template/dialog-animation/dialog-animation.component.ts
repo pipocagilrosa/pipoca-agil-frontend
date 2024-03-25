@@ -1,3 +1,4 @@
+import { DialogRef } from '@angular/cdk/dialog';
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ValidatorService } from 'src/app/services/validator.service';
@@ -9,11 +10,15 @@ import { ValidatorService } from 'src/app/services/validator.service';
 })
 export class DialogAnimationComponent {
 
-  constructor(public dialogRef: MatDialogRef<DialogAnimationComponent>,
+  constructor(public dialogRef: DialogRef<DialogAnimationComponent>,
     private validator: ValidatorService,
-    @Inject(MAT_DIALOG_DATA) public data: any) {
+    ) {
 
   }
 
   successMessage = this.validator.successMessage
+
+  close() {
+    this.dialogRef.close()
+  }
 }

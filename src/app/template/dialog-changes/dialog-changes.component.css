@@ -1,5 +1,4 @@
 .container {
-    height: 374px;
     padding-left: 15px;
 }
 
@@ -31,4 +30,9 @@ h4 {
 .cancel {
     background-color: var(--danger);
     margin-left: 15px;
+}
+
+.close-button {
+    padding-left: 16px; 
+    border-radius: 0px 15px;
 }
