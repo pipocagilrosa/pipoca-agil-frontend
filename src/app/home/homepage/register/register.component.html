@@ -136,7 +136,7 @@
                         </mat-label>
                         <input type="text" matInput name="password" class="mat-input"
                             [type]="hide ? 'password' : 'text'" required formControlName="password" maxlength="30">
-                        <button mat-icon-button matSuffix (click)="hide = !hide" class="mat-icon-button">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" class="mat-icon-button" type="button">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
                         <mat-error
@@ -157,7 +157,7 @@
                         <input type="text" matInput name="password" class="mat-input"
                             [type]="hideConfirm ? 'password' : 'text'" required maxlength="30"
                             formControlName="confirmPassword">
-                        <button mat-icon-button matSuffix (click)="hideConfirm = !hideConfirm" class="mat-icon-button">
+                        <button mat-icon-button matSuffix (click)="hideConfirm = !hideConfirm" class="mat-icon-button" type="button">
                             <mat-icon>{{hideConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
                         <mat-error
@@ -172,7 +172,7 @@
                             Li e aceito os Termos de Condições e Política de Privacidade
                         </mat-checkbox>
                     </section> -->
-                    <button mat-raised-button class="mat-button" (click)="send()">
+                    <button mat-raised-button class="mat-button" (click)="send()" type="submit">
                         <p class="mat-button-content">Cadastrar</p>
                     </button>
                 </form>

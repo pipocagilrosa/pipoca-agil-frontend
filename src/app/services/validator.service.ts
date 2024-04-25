@@ -14,22 +14,16 @@ export class ValidatorService {
 
   constructor(private dialog: MatDialog, private dialogTest: Dialog) { }
 
-  validatorMessage(type: string) {
-    let time = "100ms"
-    if(type == "unsuccess") {
-      this.successMessage = false
-    } else {
-      this.successMessage = true
-    }
-      this.openDialog()
-  }
-
-  openDialog() {
+  openDialog(successMessage: boolean, email: string, password: string) {
     this.dialogTest.open(DialogAnimationComponent, {
       panelClass: 'test',
       width: '494px',
       height: '314px',
-      
+      data: {
+        successMessage: successMessage,
+        email: email,
+        password: password
+      }
     })
   }
 

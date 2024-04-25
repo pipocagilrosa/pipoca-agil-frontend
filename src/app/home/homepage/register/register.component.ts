@@ -221,11 +221,11 @@ export class RegisterComponent implements OnInit {
       this.requests.post(this.register, 'user/signup').subscribe(
         {
           next: (data) => {
-            this.validator.validatorMessage('success')
+            this.validator.openDialog(true, this.register.email!, this.register.password!)
           },
           error: (error) => {
             this.validator.successMessage = false
-            this.validator.validatorMessage('unsuccess')
+            this.validator.openDialog(false, this.register.email!, this.register.password!)
           }
         }
       )

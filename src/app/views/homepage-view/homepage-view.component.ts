@@ -21,10 +21,15 @@ export class HomepageViewComponent {
   scrollToRegister(target: any) {
     const divContainer = document.getElementById('registerComponent')
     if (divContainer) {
-      if(target == 'samePage') {
-        divContainer.scrollIntoView({behavior: "smooth", block: "start"})
-      } else {
-        divContainer.scrollIntoView(true)
+      switch (target) {
+        case 'samePage':
+          divContainer.scrollIntoView({behavior: "smooth", block: "start"})
+          return
+        case 'anotherPage':
+          divContainer.scrollIntoView(true)
+          return
+        default:
+          return
       }
     }
   }
