@@ -1,0 +1,39 @@
+<div class="header">
+    <div class="box-title">
+        <h2 class="title">Dados de cadastro</h2>
+    </div>
+    <div class="box-icon">
+        <a class="link-icon" (click)="updateAccount()">
+            <img src="assets/pencil-square.png" alt="pencil-icon" class="pencil-icon">
+        </a>
+        <a class="link-icon" (click)="deleteAccount()">
+            <img src="assets/person-x.png" alt="person-icon" class="person-icon">
+        </a>
+    </div>
+</div>
+<div class="content">
+    <div class="box-subtitle">
+        <h3 class="subtitle">Nome</h3>
+        <h3 class="subtitle" 
+        style="margin-bottom: 135px;">E-mail</h3>
+        <h3 class="subtitle">Data de Nascimento</h3>
+    </div>
+    <div class="box-text">
+        <form action="">
+            <input class="input" type="text" value="Bruno Souza Silva">
+            <input class="input" type="text" value="bruno@gmail.com">
+            <button mat-raised-button class="mat-button" type="button"
+            style="background-color: var(--primary);">
+                <p class="mat-button-content">Alterar senha</p>
+            </button>
+            <input class="input" type="text" value="12/08/2000" 
+            style="margin-top: 40px;">
+        </form>
+    </div>
+    <div>
+        <button mat-raised-button class="mat-button save-button" type="button"
+        style="background-color: var(--success);">
+            <p class="mat-button-content">Salvar</p>
+        </button>
+    </div>
+</div>

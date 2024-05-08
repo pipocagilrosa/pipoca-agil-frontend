@@ -31,6 +31,8 @@ import { UserDataViewComponent } from './views/user-data-view/user-data-view.com
 import { LoginComponent } from './home/login/login.component';
 import { DialogChangesComponent } from './template/dialog-changes/dialog-changes.component';
 import { DialogConfirmComponent } from './template/dialog-confirm/dialog-confirm.component';
+import { UserDataComponent } from './home/user-data/user-data/user-data.component';
+import { UpdateComponent } from './home/user-data/update/update.component';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { DialogConfirmComponent } from './template/dialog-confirm/dialog-confirm
     UserDataViewComponent,
     LoginComponent,
     DialogChangesComponent,
-    DialogConfirmComponent
+    DialogConfirmComponent,
+    UserDataComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,

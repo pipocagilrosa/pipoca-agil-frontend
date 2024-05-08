@@ -7,12 +7,11 @@ import { ShareService } from 'src/app/services/share.service';
 import { ValidatorService } from 'src/app/services/validator.service';
 
 @Component({
-  selector: 'app-view-data',
-  templateUrl: './view-data.component.html',
-  styleUrls: ['./view-data.component.css']
+  selector: 'app-update',
+  templateUrl: './update.component.html',
+  styleUrls: ['./update.component.css']
 })
-export class ViewDataComponent implements OnInit, OnDestroy {
-
+export class UpdateComponent implements OnInit, OnDestroy {
   register: Register
   private subscription: Subscription | undefined;
 

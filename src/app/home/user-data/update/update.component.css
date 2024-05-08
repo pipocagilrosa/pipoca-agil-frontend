@@ -21,7 +21,12 @@
 }
 
 .box-subtitle {
+    margin-top: 5px;
     width: 280px;
+}
+
+.box-text {
+    width: 300px;
 }
 
 .box-icon {
@@ -46,6 +51,46 @@
 .content {
     height: 340px;
     margin-top: 100px;
-    width: 500px;
     display: flex;
+}
+
+.input {
+    width: 267px;
+    height: 46px;
+    border: solid 1.5px white;
+    border-radius: 10px;
+    padding: 0;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.input:hover {
+    border: solid 1.5px var(--primary-light);
+}
+
+.input:focus {
+    outline: none;
+    border: solid 1.5px var(--primary-dark);
+}
+
+.mat-button {
+    width: 269px;
+    height: 66px;
+    border-radius: 7px;
+}
+
+.save-button {
+    position: relative;
+    left: 130px;
+    top: 350px;
+}
+
+.mat-button-content {
+    color: white;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px;
+    margin-top: 12px;
 }

@@ -14,7 +14,7 @@ export class ShareService {
 
   constructor() { }
 
-  requestScroll(target: string) {
+  requestScroll(target: string | null) {
     this.scrollSubject.next(target)
   }
 

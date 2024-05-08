@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomepageViewComponent } from './views/homepage-view/homepage-view.component';
 import { UserDataViewComponent } from './views/user-data-view/user-data-view.component';
 import { LoginViewComponent } from './views/login-view/login-view.component';
+import { ViewDataComponent } from './home/user-data/view-data/view-data.component';
+import { UpdateComponent } from './home/user-data/update/update.component';
 
 const routes: Routes = [
   {
@@ -15,7 +17,11 @@ const routes: Routes = [
   },
   {
     path: "user-data",
-    component: UserDataViewComponent
+    component: UserDataViewComponent,
+    children: [
+      { path: "view", component: ViewDataComponent},
+      { path: "update", component: UpdateComponent},
+    ]
   },
   {
     path: "login",

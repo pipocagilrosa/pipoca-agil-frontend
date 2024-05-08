@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ShareService } from 'src/app/services/share.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { ShareService } from 'src/app/services/share.service';
   templateUrl: './homepage-view.component.html',
   styleUrls: ['./homepage-view.component.css']
 })
-export class HomepageViewComponent {
+export class HomepageViewComponent implements OnInit, OnDestroy {
 
   constructor(
     private shareService: ShareService
@@ -32,5 +32,9 @@ export class HomepageViewComponent {
           return
       }
     }
+  }
+
+  ngOnDestroy(){
+this.shareService.requestScroll(null)
   }
 }

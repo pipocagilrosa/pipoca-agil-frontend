@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit {
           sub = data.sub
           sessionStorage.setItem(this.authenticationKey, auth)
           sessionStorage.setItem(this.subKey, sub)
-          this.router.navigate(['user-data'])
+          this.router.navigate(['user-data/view'])
         },
         error: (err) => {
           this.handleLoginError()
