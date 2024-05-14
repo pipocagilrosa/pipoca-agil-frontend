@@ -1,4 +1,6 @@
+import { DialogService } from './../../../services/dialog.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Register } from 'src/app/register';
@@ -12,32 +14,37 @@ import { ValidatorService } from 'src/app/services/validator.service';
   styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit, OnDestroy {
+
   register: Register
   private subscription: Subscription | undefined;
+  accountDetails!: FormGroup
+  loadedData = false
 
   constructor(
     private requests: RequestsService,
     private shareService: ShareService,
     private validatorService: ValidatorService,
-    private router: Router
+    private dialogService: DialogService,
+    private router: Router,
+    private fb: FormBuilder
   ) {
     this.register = new Register()
   }
 
   ngOnInit(): void {
+    this.createForm()
     let auth!: string
     let sub!: string
     auth = sessionStorage.getItem("auth")!
     sub = sessionStorage.getItem("sub")!
-    let response = this.requests.get<Register>(auth, sub).subscribe({
+    this.requests.get<Register>(auth, sub).subscribe({
       next: (data) => {
-        this.register = {
+        this.accountDetails.setValue({
           name: data.name,
           email: data.email,
-          birthDate: data.birthDate,
-          password: "******"
-        }
-        console.log(data)
+          birthDate: data.birthDate
+        })
+        this.loadedData = true
       },
       error: (err) => {
         console.log(err)
@@ -51,11 +58,34 @@ export class UpdateComponent implements OnInit, OnDestroy {
     }
   }
 
-  updateAccount() {
-    this.router.navigate(['user-data/update'])
+  createForm() {
+    this.accountDetails = this.fb.group({
+      name: new FormControl(' ', [
+        Validators.required,
+        this.validatorService.spaceValidator(),
+        this.validatorService.characterValidator()
+      ]),
+      email: new FormControl(' ', [
+        Validators.required,
+        Validators.email
+      ]),
+      birthDate: new FormControl(' ', [
+        Validators.required,
+        this.validatorService.formatValidator(),
+        this.validatorService.ageValidator(18)
+      ])
+    })
   }
 
+  validationMessages = this.validatorService.validationMessages
+
   deleteAccount() {
-    this.validatorService.openChangesDialog()
+    this.dialogService.openChangesDialog()
+  }
+
+  save() {
+    if(this.accountDetails.valid) {
+      console.log("Save button activated")
+    }
   }
 }

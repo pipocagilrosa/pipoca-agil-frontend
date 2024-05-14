@@ -1,5 +1,6 @@
 import { DialogRef } from '@angular/cdk/dialog';
 import { Component, OnInit } from '@angular/core';
+import { DialogService } from 'src/app/services/dialog.service';
 import { RequestsService } from 'src/app/services/requests.service';
 import { ShareService } from 'src/app/services/share.service';
 import { ValidatorService } from 'src/app/services/validator.service';
@@ -18,6 +19,7 @@ export class DialogChangesComponent {
     private requests: RequestsService,
     private shareService: ShareService,
     private validatorService: ValidatorService,
+    private dialogService: DialogService,
     public dialogRef: DialogRef<DialogChangesComponent>
   ) { }
 
@@ -30,7 +32,7 @@ export class DialogChangesComponent {
     this.requests.delete(this.sub, this.auth, "disable").subscribe({
       next: (data) => {
         this.dialogRef.close()
-        this.validatorService.openConfirmDialog()
+        this.dialogService.openConfirmDialog()
         sessionStorage.clear()
       },
       error: (err) => {

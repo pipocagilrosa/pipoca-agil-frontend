@@ -104,7 +104,7 @@
                             E-mail
                         </mat-label>
                         <input type="text" matInput class="mat-input" name="email" formControlName="email" required
-                            maxlength="40">
+                            maxlength="40" autocomplete="email">
                         <mat-error
                             *ngIf="accountDetails.get('email')?.hasError(validationMessages.email[0].type)">{{validationMessages.email[0].message}}
                         </mat-error>
@@ -135,7 +135,7 @@
                             Senha
                         </mat-label>
                         <input type="text" matInput name="password" class="mat-input"
-                            [type]="hide ? 'password' : 'text'" required formControlName="password" maxlength="30">
+                            [type]="hide ? 'password' : 'text'" required formControlName="password" maxlength="30" autocomplete="new-password">
                         <button mat-icon-button matSuffix (click)="hide = !hide" class="mat-icon-button" type="button">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
@@ -156,7 +156,7 @@
                         </mat-label>
                         <input type="text" matInput name="password" class="mat-input"
                             [type]="hideConfirm ? 'password' : 'text'" required maxlength="30"
-                            formControlName="confirmPassword">
+                            formControlName="confirmPassword" autocomplete="new-password">
                         <button mat-icon-button matSuffix (click)="hideConfirm = !hideConfirm" class="mat-icon-button" type="button">
                             <mat-icon>{{hideConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>

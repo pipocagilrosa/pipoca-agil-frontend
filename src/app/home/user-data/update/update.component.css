@@ -60,9 +60,13 @@
     border: solid 1.5px white;
     border-radius: 10px;
     padding: 0;
-    margin-bottom: 40px;
     font-size: 1.1em;
     text-align: center;
+}
+
+.fake-input {
+    margin-bottom: 40px; 
+    font-size: 1.5em;
 }
 
 .input:hover {
@@ -72,6 +76,17 @@
 .input:focus {
     outline: none;
     border: solid 1.5px var(--primary-dark);
+}
+
+input.ng-invalid {
+    border: solid 1.5px red !important;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.85em;
+    padding-left: 5px;
+    margin-bottom: 0;
 }
 
 .mat-button {
