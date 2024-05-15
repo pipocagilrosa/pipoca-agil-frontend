@@ -9,12 +9,14 @@ import { ShareService } from 'src/app/services/share.service';
 import { ValidatorService } from 'src/app/services/validator.service';
 
 @Component({
-  selector: 'app-update',
-  templateUrl: './update.component.html',
-  styleUrls: ['./update.component.css']
+  selector: 'app-update-password',
+  templateUrl: './update-password.component.html',
+  styleUrls: ['./update-password.component.css']
 })
-export class UpdateComponent implements OnInit, OnDestroy {
+export class UpdatePasswordComponent implements OnInit, OnDestroy {
 
+  hide = true
+  hideConfirm = true
   register: Register
   private subscription: Subscription | undefined;
   accountDetails!: FormGroup
@@ -31,25 +33,10 @@ export class UpdateComponent implements OnInit, OnDestroy {
     this.register = new Register()
   }
 
+  validationMessages = this.validatorService.validationMessages
+
   ngOnInit(): void {
     this.createForm()
-    let auth!: string
-    let sub!: string
-    auth = sessionStorage.getItem("auth")!
-    sub = sessionStorage.getItem("sub")!
-    this.requests.get<Register>(auth, sub).subscribe({
-      next: (data) => {
-        this.accountDetails.setValue({
-          name: data.name,
-          email: data.email,
-          birthDate: data.birthDate
-        })
-        this.loadedData = true
-      },
-      error: (err) => {
-        console.log(err)
-      }
-    })
   }
 
   ngOnDestroy(): void {
@@ -60,34 +47,27 @@ export class UpdateComponent implements OnInit, OnDestroy {
 
   createForm() {
     this.accountDetails = this.fb.group({
-      name: new FormControl(' ', [
-        Validators.required,
-        this.validatorService.spaceValidator(),
-        this.validatorService.characterValidator()
+      password: new FormControl('', [
+        Validators.required
       ]),
-      email: new FormControl(' ', [
+      newPassword: new FormControl('', [
         Validators.required,
-        Validators.email
-      ]),
-      birthDate: new FormControl(' ', [
-        Validators.required,
-        this.validatorService.formatValidator(),
-        this.validatorService.ageValidator(18)
+        Validators.minLength(6),
+        Validators.maxLength(20)
       ])
     })
   }
-
-  validationMessages = this.validatorService.validationMessages
 
   deleteAccount() {
     this.dialogService.openChangesDialog()
   }
 
   navigate() {
-    this.router.navigate(['user-data/update-password'])
+    this.router.navigate(['user-data/update'])
   }
 
   save() {
+    this.accountDetails.markAsTouched()
     if(this.accountDetails.valid) {
       console.log("Save button activated")
     }

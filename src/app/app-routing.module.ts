@@ -5,6 +5,7 @@ import { UserDataViewComponent } from './views/user-data-view/user-data-view.com
 import { LoginViewComponent } from './views/login-view/login-view.component';
 import { ViewDataComponent } from './home/user-data/view-data/view-data.component';
 import { UpdateComponent } from './home/user-data/update/update.component';
+import { UpdatePasswordComponent } from './home/user-data/update-password/update-password.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
     children: [
       { path: "view", component: ViewDataComponent},
       { path: "update", component: UpdateComponent},
+      { path: "update-password", component: UpdatePasswordComponent}
     ]
   },
   {

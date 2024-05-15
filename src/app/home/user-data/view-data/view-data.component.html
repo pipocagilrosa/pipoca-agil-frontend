@@ -19,9 +19,13 @@
         <h3 class="subtitle">Data de Nascimento</h3>
     </div>
     <div class="box-text">
-        <p class="text" style="margin-bottom: 65px;">{{register.name}}</p>
-        <p class="text" style="margin-bottom: 70px;">{{register.email}}</p>
-        <p class="text" style="margin-bottom: 84px;">{{register.password}}</p>
-        <p class="text">{{register.birthDate}}</p>
+        <p class="text" style="margin-bottom: 65px;" *ngIf="loadedData">{{register.name}}</p>
+        <p class="text fake-text" style="margin-bottom: 65px;" *ngIf="!loadedData">...</p>
+        <p class="text" style="margin-bottom: 70px;" *ngIf="loadedData">{{register.email}}</p>
+        <p class="text fake-text" style="margin-bottom: 70px;" *ngIf="!loadedData">...</p>
+        <p class="text" style="margin-bottom: 84px;" *ngIf="loadedData">{{register.password}}</p>
+        <p class="text fake-text" style="margin-bottom: 84px;" *ngIf="!loadedData">...</p>
+        <p class="text" *ngIf="loadedData">{{register.birthDate}}</p>
+        <p class="text fake-text" *ngIf="!loadedData">...</p>
     </div>
 </div>

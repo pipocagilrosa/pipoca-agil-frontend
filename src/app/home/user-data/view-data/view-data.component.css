@@ -36,6 +36,10 @@
     line-height: 24px;
 }
 
+.fake-text {
+    font-size: 1.5em;
+}
+
 .link-icon {
     display: inline-block;
     text-decoration: none;

@@ -17,6 +17,8 @@ export class ViewDataComponent implements OnInit, OnDestroy {
   register: Register
   private subscription: Subscription | undefined;
 
+  loadedData = false
+
   constructor(
     private requests: RequestsService,
     private shareService: ShareService,
@@ -40,7 +42,7 @@ export class ViewDataComponent implements OnInit, OnDestroy {
           birthDate: data.birthDate,
           password: "******"
         }
-        console.log(data)
+        this.loadedData = true
       },
       error: (err) => {
         console.log(err)
