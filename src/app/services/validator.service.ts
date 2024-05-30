@@ -130,6 +130,11 @@ export class ValidatorService {
       {
         type: 'unequalPassword', message: 'A senha deve ser a mesma'
       }
+    ],
+    'keyWord': [
+      {
+        type: 'required', message: 'Campo obrigatório'
+      }
     ]
   }
 }

@@ -34,6 +34,7 @@ import { DialogConfirmComponent } from './template/dialog-confirm/dialog-confirm
 import { UserDataComponent } from './home/user-data/user-data/user-data.component';
 import { UpdateComponent } from './home/user-data/update/update.component';
 import { UpdatePasswordComponent } from './home/user-data/update-password/update-password.component';
+import { ForgetPasswordComponent } from './home/user-data/forget-password/forget-password.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { UpdatePasswordComponent } from './home/user-data/update-password/update
     DialogConfirmComponent,
     UserDataComponent,
     UpdateComponent,
-    UpdatePasswordComponent
+    UpdatePasswordComponent,
+    ForgetPasswordComponent
   ],
   imports: [
     BrowserModule,

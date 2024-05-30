@@ -22,10 +22,10 @@ export class RegisterComponent implements OnInit {
   register!: Register
 
   constructor(
-    private requestService: RequestsService, 
-    private validatorService: ValidatorService, 
+    private requestService: RequestsService,
+    private validatorService: ValidatorService,
     private dialogService: DialogService,
-    private fb: FormBuilder, 
+    private fb: FormBuilder,
   ) {
 
   }
@@ -42,29 +42,29 @@ export class RegisterComponent implements OnInit {
   createForm() {
     this.accountDetails = this.fb.group({
       name: new FormControl('', [
-        Validators.required,
-        this.validatorService.spaceValidator(),
-        this.validatorService.characterValidator()
+        // Validators.required,
+        // this.validatorService.spaceValidator(),
+        // this.validatorService.characterValidator()
       ]),
       email: new FormControl('', [
-        Validators.required,
-        Validators.email,
-        // this.validarNumero()
+        // Validators.required,
+        // Validators.email
       ]),
       birthDate: new FormControl('', [
-        Validators.required,
-        this.validatorService.formatValidator(),
-        this.validatorService.ageValidator(18)
+        // Validators.required,
+        // this.validatorService.formatValidator(),
+        // this.validatorService.ageValidator(18)
       ]),
       password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(20)
+        // Validators.required,
+        // Validators.minLength(6),
+        // Validators.maxLength(20)
       ]),
       confirmPassword: new FormControl('', [
-        Validators.required,
-        this.validatorService.equalValidator()
-      ])
+        // Validators.required,
+        // this.validatorService.equalValidator()
+      ]),
+      keyWord: new FormControl('')
     })
   }
 
@@ -81,8 +81,8 @@ export class RegisterComponent implements OnInit {
   // }
 
   blockLetters(event: KeyboardEvent) {
-    const regex = /[0-9\/]/; 
-    
+    const regex = /[0-9\/]/;
+
     if (event.key === 'Backspace' || event.key === 'Tab') {
       return;
     }
@@ -90,6 +90,69 @@ export class RegisterComponent implements OnInit {
     if (!regex.test(event.key)) {
       event.preventDefault();
     }
+  }
+
+  inputTouched() {
+    this.setValidation()
+  }
+
+  setValidation() {
+    if (!this.accountDetails.get('name')?.hasValidator(Validators.required)) {
+      this.accountDetails.get('name')?.addValidators(
+        [
+          Validators.required,
+          this.validatorService.spaceValidator(),
+          this.validatorService.characterValidator()
+        ]
+      )
+      this.accountDetails.get('email')?.addValidators(
+        [
+          Validators.required,
+          Validators.email
+        ]
+      )
+      this.accountDetails.get('birthDate')?.addValidators(
+        [
+          Validators.required,
+          this.validatorService.formatValidator(),
+          this.validatorService.ageValidator(18)
+        ]
+      )
+      this.accountDetails.get('password')?.addValidators(
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(20)
+        ]
+      )
+      this.accountDetails.get('confirmPassword')?.addValidators(
+        [
+          Validators.required,
+          this.validatorService.equalValidator()
+        ]
+      )
+      this.accountDetails.get('keyWord')?.addValidators(
+        [
+          Validators.required
+        ]
+      )
+    }
+  }
+
+  updateValidity() {
+    this.accountDetails.get('name')?.updateValueAndValidity()
+    this.accountDetails.get('email')?.updateValueAndValidity()
+    this.accountDetails.get('birthDate')?.updateValueAndValidity()
+    this.accountDetails.get('password')?.updateValueAndValidity()
+    this.accountDetails.get('confirmPassword')?.updateValueAndValidity()
+    this.accountDetails.get('keyWord')?.updateValueAndValidity()
+
+    this.accountDetails.get('name')?.markAsDirty()
+    this.accountDetails.get('email')?.markAsDirty()
+    this.accountDetails.get('birthDate')?.markAsDirty()
+    this.accountDetails.get('password')?.markAsDirty()
+    this.accountDetails.get('confirmPassword')?.markAsDirty()
+    this.accountDetails.get('keyWord')?.markAsDirty()
   }
 
   send() {
@@ -101,6 +164,8 @@ export class RegisterComponent implements OnInit {
       birthDate: this.accountDetails.value.birthDate
     }
 
+    this.setValidation()
+    this.updateValidity()
     if (this.accountDetails.valid) {
       this.requestService.post(this.register, 'user/signup').subscribe(
         {

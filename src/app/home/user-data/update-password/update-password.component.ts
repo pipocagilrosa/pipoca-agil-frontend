@@ -1,6 +1,6 @@
 import { DialogService } from './../../../services/dialog.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators, ValidatorFn } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Register } from 'src/app/register';
@@ -47,14 +47,8 @@ export class UpdatePasswordComponent implements OnInit, OnDestroy {
 
   createForm() {
     this.accountDetails = this.fb.group({
-      password: new FormControl('', [
-        Validators.required
-      ]),
-      newPassword: new FormControl('', [
-        Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(20)
-      ])
+      password: new FormControl(''),
+      newPassword: new FormControl('')
     })
   }
 
@@ -66,9 +60,36 @@ export class UpdatePasswordComponent implements OnInit, OnDestroy {
     this.router.navigate(['user-data/update'])
   }
 
+  inputTouched() {
+    this.setValidation()
+  }
+
+  setValidation() {
+    if (!this.accountDetails.get('password')?.hasValidator(Validators.required)) {
+      this.accountDetails.get('password')?.addValidators(
+        [Validators.required]
+      )
+      this.accountDetails.get('newPassword')?.addValidators(
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(20)
+        ]
+      )
+    }
+  }
+
+  updateValidity() {
+    this.accountDetails.get('password')?.updateValueAndValidity()
+    this.accountDetails.get('newPassword')?.updateValueAndValidity()
+    this.accountDetails.get('password')?.markAsDirty()
+    this.accountDetails.get('newPassword')?.markAsDirty()
+  }
+
   save() {
-    this.accountDetails.markAsTouched()
-    if(this.accountDetails.valid) {
+    this.setValidation()
+    this.updateValidity()
+    if (this.accountDetails.valid) {
       console.log("Save button activated")
     }
   }
