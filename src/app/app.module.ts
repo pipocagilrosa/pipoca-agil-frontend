@@ -35,6 +35,7 @@ import { UserDataComponent } from './home/user-data/user-data/user-data.componen
 import { UpdateComponent } from './home/user-data/update/update.component';
 import { UpdatePasswordComponent } from './home/user-data/update-password/update-password.component';
 import { ForgetPasswordComponent } from './home/user-data/forget-password/forget-password.component';
+import { ResetPasswordComponent } from './home/user-data/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { ForgetPasswordComponent } from './home/user-data/forget-password/forget
     UserDataComponent,
     UpdateComponent,
     UpdatePasswordComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
