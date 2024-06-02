@@ -29,7 +29,7 @@
                         <button mat-icon-button matSuffix (click)="hide = !hide" class="mat-icon-button" type="button">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
-                        <mat-hint align="start"><a href="" class="text-font text-link forgout-password">Esqueci minha senha?</a>
+                        <mat-hint align="start"><a routerLink="/forgot-password" class="text-font text-link forgout-password">Esqueci minha senha?</a>
                         </mat-hint>
                     </mat-form-field>
                     <button mat-raised-button class="mat-button" (click)="enter()" type="submit">
