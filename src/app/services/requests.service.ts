@@ -13,30 +13,17 @@ export class RequestsService {
   httpHeaders: HttpHeaders = new HttpHeaders({'Content-Type':'application/json'});
 
   url = 'https://back-piporosa.onrender.com/'
-  constructor( private http: HttpClient ) { }
+  constructor( private http: HttpClient ) {}
 
-  // async post(register: Register) {
-  //   await axios.post(this.url, JSON.stringify(register),
-  //     {
-  //       headers: {
-  //         "Content-Type": "application/json"
-  //       }
-  //     } 
-  //   ).then(function (response) {
-  //     return response
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error)
-  //   });
-  // }
-
-  setAuthorization(auth: string) {
+  setAuthorization(auth?: string) {
     let authHeader: HttpHeaders = new HttpHeaders({'Authorization':`Bearer ${auth}`});
     return authHeader
   }
 
-  post<T>(param: T, path: string): Observable<T> {
-    return this.http.post<T>(`${this.url}${path}`, param, {headers: this.httpHeaders})
+  post<T>(param: T, path: string, auth?: string): Observable<T> {
+    return this.http.post<T>(`${this.url}${path}`, param, {
+      headers: path !== 'user/signup' ? this.setAuthorization(auth) : this.httpHeaders
+    })
   }
  
   get<T>(auth: string, path: string): Observable<T> {

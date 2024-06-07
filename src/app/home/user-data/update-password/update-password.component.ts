@@ -2,7 +2,7 @@ import { DialogService } from './../../../services/dialog.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators, ValidatorFn } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Register } from 'src/app/register';
+import { Register, UpdatePassword } from 'src/app/register';
 import { RequestsService } from 'src/app/services/requests.service';
 import { ShareService } from 'src/app/services/share.service';
 import { ValidatorService } from 'src/app/services/validator.service';
@@ -17,7 +17,8 @@ export class UpdatePasswordComponent implements OnInit {
   hide = true
   hideNew = true
   hideConfirm = true
-  register: Register
+
+  updatePassword: UpdatePassword
   accountDetails!: FormGroup
   loadedData = false
   resetScreen = false
@@ -27,20 +28,24 @@ export class UpdatePasswordComponent implements OnInit {
     private shareService: ShareService,
     private validatorService: ValidatorService,
     private dialogService: DialogService,
+    private requestsService: RequestsService,
     private router: Router,
     private fb: FormBuilder
   ) {
-    this.register = new Register()
+    this.updatePassword = new UpdatePassword()
   }
 
   validationMessages = this.validatorService.validationMessages
 
   ngOnInit(): void {
     let path = this.router.url
-    if(path === '/reset-password') {
+    if (path === '/reset-password') {
       this.resetScreen = true
     }
     this.createForm()
+    this.accountDetails.controls['newPassword'].valueChanges.subscribe((newValue) => {
+      this.validatorService.passwordUpdate = newValue
+    })
   }
 
   createForm() {
@@ -65,7 +70,7 @@ export class UpdatePasswordComponent implements OnInit {
 
   setValidation() {
     if (!this.accountDetails.get('password')?.hasValidator(Validators.required)) {
-      if(!this.resetScreen) {
+      if (!this.resetScreen) {
         this.accountDetails.get('password')?.addValidators(
           [Validators.required]
         )
@@ -77,11 +82,17 @@ export class UpdatePasswordComponent implements OnInit {
           Validators.maxLength(20)
         ]
       )
+      this.accountDetails.get('confirmPassword')?.addValidators(
+        [
+          Validators.required,
+          this.validatorService.equalValidator()
+        ]
+      )
     }
   }
 
   updateValidity() {
-    if(!this.resetScreen) {
+    if (!this.resetScreen) {
       this.accountDetails.get('password')?.updateValueAndValidity()
       this.accountDetails.get('password')?.markAsDirty()
     }
@@ -95,7 +106,27 @@ export class UpdatePasswordComponent implements OnInit {
     this.setValidation()
     this.updateValidity()
     if (this.accountDetails.valid) {
-      console.log("Save button activated")
+      let auth!: string
+      let sub!: string
+      auth = sessionStorage.getItem("auth")!
+      sub = sessionStorage.getItem("sub")!
+
+      this.updatePassword = {
+        oldPassword: this.accountDetails.value.password,
+        newPassword: this.accountDetails.value.newPassword
+      }
+      
+      this.requestsService.post<UpdatePassword>(
+        this.updatePassword, 'reset-password-secure', auth).subscribe(
+          {
+            next: () => {
+              this.dialogService.openConfirmDialog("Senha alterada com sucesso!", "user-data/update")
+            },
+            error: (err) => {
+
+            }
+          }
+        )
     }
   }
 }

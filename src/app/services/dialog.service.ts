@@ -35,11 +35,15 @@ export class DialogService {
     })
   }
 
-  openConfirmDialog() {
+  openConfirmDialog(message: string, path: string) {
     this.dialogTest.open(DialogConfirmComponent, {
       panelClass: 'test',
       width: '625px',
-      height: '374px'
+      height: '374px',
+      data: {
+        message: message,
+        path: path
+      }
     })
   }
 

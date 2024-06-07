@@ -4,3 +4,8 @@ export class Register {
     birthDate?: string
     password?: string
 }
+
+export class UpdatePassword {
+    oldPassword?: string
+    newPassword?: string
+}

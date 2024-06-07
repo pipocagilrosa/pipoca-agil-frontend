@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
   hide = true
   hideConfirm = true
 
-  register!: Register
+  register: Register
 
   constructor(
     private requestService: RequestsService,
@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
     private dialogService: DialogService,
     private fb: FormBuilder,
   ) {
-
+    this.register = new Register()
   }
 
   validationMessages = this.validatorService.validationMessages
@@ -41,29 +41,11 @@ export class RegisterComponent implements OnInit {
 
   createForm() {
     this.accountDetails = this.fb.group({
-      name: new FormControl('', [
-        // Validators.required,
-        // this.validatorService.spaceValidator(),
-        // this.validatorService.characterValidator()
-      ]),
-      email: new FormControl('', [
-        // Validators.required,
-        // Validators.email
-      ]),
-      birthDate: new FormControl('', [
-        // Validators.required,
-        // this.validatorService.formatValidator(),
-        // this.validatorService.ageValidator(18)
-      ]),
-      password: new FormControl('', [
-        // Validators.required,
-        // Validators.minLength(6),
-        // Validators.maxLength(20)
-      ]),
-      confirmPassword: new FormControl('', [
-        // Validators.required,
-        // this.validatorService.equalValidator()
-      ]),
+      name: new FormControl(''),
+      email: new FormControl(''),
+      birthDate: new FormControl(''),
+      password: new FormControl(''),
+      confirmPassword: new FormControl(''),
       keyWord: new FormControl('')
     })
   }

@@ -17,8 +17,6 @@ export class UserDataComponent {
   ngOnInit(): void {
     let fullPath = this.router.url
     let path = fullPath.slice(11)
-    console.log(path)
-    console.log(typeof path)
 
     if (path === 'update-password' || fullPath === '/reset-password') {
       this.title = 'Alterar senha'
