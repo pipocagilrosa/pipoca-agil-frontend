@@ -1,24 +1,16 @@
-<div class="header">
-    <div class="box-title">
-        <h2 class="title">Dados de cadastro</h2>
-    </div>
-    <div class="box-icon">
-        <a class="link-icon" (click)="deleteAccount()">
-            <img src="assets/person-x.png" alt="person-icon" class="person-icon">
-        </a>
-    </div>
-</div>
 <div class="content">
     <div class="box-subtitle">
         <h3 class="subtitle">Nome</h3>
-        <h3 class="subtitle" style="margin-bottom: 135px;">E-mail</h3>
         <h3 class="subtitle">Data de Nascimento</h3>
+        <h3 class="subtitle" style="margin-bottom: 70px;">E-mail</h3>
+        <h3 class="subtitle">Senha</h3>
     </div>
     <div class="box-text">
         <form action="" [formGroup]="accountDetails">
-            <input class="input fake-input" type="text" id="name" value="..." *ngIf="!loadedData">
-            <input class="input" type="text" formControlName="name" id="name" *ngIf="loadedData">
-            <div style="height: 40px;" *ngIf="loadedData">
+            <input class="input fake-input" type="text" value="..." *ngIf="!loadedData" disabled>
+            <input class="input enabled-input data-input" type="text" value="{{register.name}}" *ngIf="loadedData" formControlName="name"
+                id="name">
+            <div class="error-field" *ngIf="loadedData">
                 <div *ngFor="let validation of validationMessages.name; let i = index">
                     <p class="error-message"
                         *ngIf="accountDetails.get('name')?.hasError(validationMessages.name[i].type)">
@@ -26,9 +18,10 @@
                     </p>
                 </div>
             </div>
-            <input class="input fake-input" type="text" id="name" value="..." *ngIf="!loadedData">
-            <input class="input" type="text" formControlName="email" id="email" *ngIf="loadedData">
-            <div style="height: 40px;" *ngIf="loadedData">
+            <input class="input fake-input" type="text" value="..." disabled *ngIf="!loadedData">
+            <input class="input enabled-input data-input" type="text" value="{{register.birthDate}}" *ngIf="loadedData" formControlName="email"
+                id="email">
+            <div class="error-field" *ngIf="loadedData">
                 <div *ngFor="let validation of validationMessages.email; let i = index">
                     <p class="error-message"
                         *ngIf="accountDetails.get('email')?.hasError(validationMessages.email[i].type)">
@@ -36,14 +29,10 @@
                     </p>
                 </div>
             </div>
-            <button mat-raised-button class="mat-button" type="button" style="background-color: var(--primary);" (click)="navigate()">
-                <p class="mat-button-content">Alterar senha</p>
-            </button>
-            <input class="input fake-input" type="text" id="name" value="..." *ngIf="!loadedData"
-                style="margin-top: 40px;">
-            <input class="input" type="text" formControlName="birthDate" style="margin-top: 40px;" id="birthDate"
-                *ngIf="loadedData">
-            <div style="height: 40px;" *ngIf="loadedData">
+            <input class="input fake-input" type="text" value="..." disabled *ngIf="!loadedData">
+            <input class="input enabled-input data-input" type="text" value="{{register.email}}" *ngIf="loadedData"
+            formControlName="birthDate" id="birthDate">
+            <div class="error-field" *ngIf="loadedData">
                 <div *ngFor="let validation of validationMessages.birthDate; let i = index">
                     <p class="error-message"
                         *ngIf="accountDetails.get('birthDate')?.hasError(validationMessages.birthDate[i].type)">
@@ -51,12 +40,19 @@
                     </p>
                 </div>
             </div>
+            <input class="input" type="text" value="**************" disabled *ngIf="loadedData">
+            <input class="input" type="text" value="..." disabled *ngIf="!loadedData">
+            <button class="save-button button">
+                Salvar
+            </button>
         </form>
     </div>
-    <div>
-        <button mat-raised-button class="mat-button save-button" type="button" style="background-color: var(--success);"
-            (click)="save()">
-            <p class="mat-button-content">Salvar</p>
-        </button>
+    <div class="box-button">
+        <div class="box-button-content">
+            <a routerLink="/user-data/update-password">Alterar senha</a>
+            <button class="delete-button button" (click)="deleteAccount()">
+                Excluir conta
+            </button>
+        </div>
     </div>
 </div>

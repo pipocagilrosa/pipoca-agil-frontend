@@ -1,8 +1,7 @@
 import { DialogService } from './../../../services/dialog.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators, ValidatorFn } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Register } from 'src/app/register';
 import { RequestsService } from 'src/app/services/requests.service';
 import { ShareService } from 'src/app/services/share.service';
@@ -13,14 +12,15 @@ import { ValidatorService } from 'src/app/services/validator.service';
   templateUrl: './update-password.component.html',
   styleUrls: ['./update-password.component.css']
 })
-export class UpdatePasswordComponent implements OnInit, OnDestroy {
+export class UpdatePasswordComponent implements OnInit {
 
   hide = true
+  hideNew = true
   hideConfirm = true
   register: Register
-  private subscription: Subscription | undefined;
   accountDetails!: FormGroup
   loadedData = false
+  resetScreen = false
 
   constructor(
     private requests: RequestsService,
@@ -36,19 +36,18 @@ export class UpdatePasswordComponent implements OnInit, OnDestroy {
   validationMessages = this.validatorService.validationMessages
 
   ngOnInit(): void {
-    this.createForm()
-  }
-
-  ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
+    let path = this.router.url
+    if(path === '/reset-password') {
+      this.resetScreen = true
     }
+    this.createForm()
   }
 
   createForm() {
     this.accountDetails = this.fb.group({
       password: new FormControl(''),
-      newPassword: new FormControl('')
+      newPassword: new FormControl(''),
+      confirmPassword: new FormControl('')
     })
   }
 
@@ -66,9 +65,11 @@ export class UpdatePasswordComponent implements OnInit, OnDestroy {
 
   setValidation() {
     if (!this.accountDetails.get('password')?.hasValidator(Validators.required)) {
-      this.accountDetails.get('password')?.addValidators(
-        [Validators.required]
-      )
+      if(!this.resetScreen) {
+        this.accountDetails.get('password')?.addValidators(
+          [Validators.required]
+        )
+      }
       this.accountDetails.get('newPassword')?.addValidators(
         [
           Validators.required,
@@ -80,10 +81,14 @@ export class UpdatePasswordComponent implements OnInit, OnDestroy {
   }
 
   updateValidity() {
-    this.accountDetails.get('password')?.updateValueAndValidity()
+    if(!this.resetScreen) {
+      this.accountDetails.get('password')?.updateValueAndValidity()
+      this.accountDetails.get('password')?.markAsDirty()
+    }
     this.accountDetails.get('newPassword')?.updateValueAndValidity()
-    this.accountDetails.get('password')?.markAsDirty()
     this.accountDetails.get('newPassword')?.markAsDirty()
+    this.accountDetails.get('confirmPassword')?.updateValueAndValidity()
+    this.accountDetails.get('confirmPassword')?.markAsDirty()
   }
 
   save() {

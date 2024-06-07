@@ -28,11 +28,18 @@ const routes: Routes = [
     ]
   },
   {
+    path: "reset-password",
+    component: UserDataViewComponent,
+    children: [
+      { path: "", component: UpdatePasswordComponent}
+    ]
+  },
+  {
     path: "forget-password",
     component: ForgetPasswordComponent
   },
   {
-    path: "reset-password",
+    path: "validate-code",
     component: ResetPasswordComponent
   },
   {

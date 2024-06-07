@@ -1,55 +1,82 @@
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.title {
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 48px;
-    margin-bottom: 0px;
-}
-
 .subtitle {
     font-size: 32px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 40px;
-    margin-bottom: 50px;
+    color: var(--gray-800);
+    margin-bottom: 51px;
 }
 
 .box-subtitle {
-    width: 280px;
+    margin-top: 12px;
+    max-width: 210px;
+    margin-right: 10px;
 }
 
-.box-icon {
-    padding-top: 8px;
+.box-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.text {
-    margin-top: 9px;
-    font-size: 16px;
+.input {
+    width: 425px;
+    height: 62px;
+    border: solid 1.5px var(--gray-200);
+    background-color: var(--gray-200);
+    border-radius: 10px;
+    font-size: 24px;
     font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-}
-
-.fake-text {
-    font-size: 1.5em;
-}
-
-.link-icon {
-    display: inline-block;
-    text-decoration: none;
-    margin-left: 80px;
-    cursor: pointer;
+    font-weight: 600;
+    line-height: 32px;
+    color: var(--gray-600);
+    margin-bottom: 44px;
+    padding-left: 24px;
 }
 
 .content {
-    height: 340px;
-    margin-top: 100px;
-    width: 500px;
     display: flex;
+}
+
+.button {
+    border-radius: 10px;
+    font-weight: 700;
+    font-family: system-ui;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.edit-button {
+    width: 228px;
+    height: 61px;
+    border: 0;
+    background: #FDDC5C;
+    letter-spacing: -0.5px;
+    color: var(--gray-900);
+}
+
+.edit-button:hover {
+    background: #ffd83a;
+}
+
+.box-button {
+    display: flex;
+    align-items: end;
+}
+
+.delete-button {
+    width: 148px;
+    height: 57px;
+    font-style: normal;
+    line-height: 26px;
+    border: 2px solid rgba(220, 53, 69, 0.50);
+    color: var(--danger);
+    background-color: var(--gray-100);
+    letter-spacing: -0.3px;
+    position: relative;
+    left: 160px;
+}
+
+.delete-button:hover {
+    background-color: #ebedef;
 }
