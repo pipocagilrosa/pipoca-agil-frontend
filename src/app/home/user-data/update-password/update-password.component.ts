@@ -117,7 +117,7 @@ export class UpdatePasswordComponent implements OnInit {
       }
       
       this.requestsService.post<UpdatePassword>(
-        this.updatePassword, 'reset-password-secure', auth).subscribe(
+        this.updatePassword, 'reset-password-secure', true, auth).subscribe(
           {
             next: () => {
               this.dialogService.openConfirmDialog("Senha alterada com sucesso!", "user-data/update")

@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
         email: this.loginData.value.email,
         password: this.loginData.value.password
       }
-      this.requests.post(this.register, "auth/login").subscribe({
+      this.requests.post<Register>(this.register, "auth/login", false).subscribe({
         next: (data: any) => {
           auth = data.token
           sub = data.sub

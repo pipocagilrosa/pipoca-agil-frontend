@@ -135,6 +135,11 @@ export class ValidatorService {
       {
         type: 'required', message: 'Campo obrigatório'
       }
+    ],
+    'value': [
+      {
+        type: 'required', message: 'Campo obrigatório'
+      }
     ]
   }
 }

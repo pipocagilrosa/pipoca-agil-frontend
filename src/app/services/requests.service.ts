@@ -16,13 +16,16 @@ export class RequestsService {
   constructor( private http: HttpClient ) {}
 
   setAuthorization(auth?: string) {
-    let authHeader: HttpHeaders = new HttpHeaders({'Authorization':`Bearer ${auth}`});
-    return authHeader
+    let headers = this.httpHeaders
+    if(auth) {
+      headers = headers.append('Authorization', `Bearer ${auth}`)
+    }
+    return headers
   }
 
-  post<T>(param: T, path: string, auth?: string): Observable<T> {
+  post<T>(param: T, path: string, authorized: boolean, auth?: string): Observable<T> {
     return this.http.post<T>(`${this.url}${path}`, param, {
-      headers: path !== 'user/signup' ? this.setAuthorization(auth) : this.httpHeaders
+      headers: authorized ? this.setAuthorization(auth) : this.httpHeaders
     })
   }
  

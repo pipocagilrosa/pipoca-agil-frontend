@@ -143,13 +143,14 @@ export class RegisterComponent implements OnInit {
       name: this.accountDetails.value.name,
       email: this.accountDetails.value.email,
       password: this.accountDetails.value.password,
-      birthDate: this.accountDetails.value.birthDate
+      birthDate: this.accountDetails.value.birthDate,
+      favoriteWordPhrase: this.accountDetails.value.keyWord
     }
 
     this.setValidation()
     this.updateValidity()
     if (this.accountDetails.valid) {
-      this.requestService.post(this.register, 'user/signup').subscribe(
+      this.requestService.post<Register>(this.register, 'user/signup', false).subscribe(
         {
           next: (data) => {
             this.dialogService.openDialog(true, this.register.email!, this.register.password!)

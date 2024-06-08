@@ -36,7 +36,7 @@ export class DialogAnimationComponent implements OnDestroy {
         email: this.data.email,
         password: this.data.password
       }
-      this.requests.post(this.register, "auth/login").subscribe({
+      this.requests.post<Register>(this.register, "auth/login", false).subscribe({
         next: (data: any) => {
           auth = data.token
           sub = data.sub
