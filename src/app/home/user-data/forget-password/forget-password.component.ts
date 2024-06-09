@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { GenerateToken, ValidateToken } from 'src/app/register';
+import { GenerateToken, ValidateKeyWord, ValidateToken } from 'src/app/register';
 import { RequestsService } from 'src/app/services/requests.service';
+import { ShareService } from 'src/app/services/share.service';
 import { ValidatorService } from 'src/app/services/validator.service';
 
 @Component({
@@ -18,6 +19,8 @@ export class ForgetPasswordComponent implements OnInit {
 
   validateToken: ValidateToken
 
+  validateKeyWord: ValidateKeyWord
+
   options = [
     'E-mail',
     'Palavra ou Frase'
@@ -29,10 +32,12 @@ export class ForgetPasswordComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private validatorService: ValidatorService,
-    private requestService: RequestsService
+    private requestService: RequestsService,
+    private shareService: ShareService
   ) {
     this.generateToken = new GenerateToken()
     this.validateToken = new ValidateToken()
+    this.validateKeyWord = new ValidateKeyWord()
   }
 
   validationMessages = this.validatorService.validationMessages
@@ -91,11 +96,12 @@ export class ForgetPasswordComponent implements OnInit {
 
           break
         case 'Palavra ou Frase':
-          this.validateToken = {
-            token: this.formDetails.value.value
+          this.validateKeyWord = {
+            favoriteWordPhrase: this.formDetails.value.value
           }
-          this.requestService.post<ValidateToken>(this.validateToken, 'user/confirm-pass', false).subscribe({
+          this.requestService.post<ValidateKeyWord>(this.validateKeyWord, 'user/confirm-pass', false).subscribe({
             next: () => {
+              this.shareService.requestToken('keyWord', this.formDetails.value.value)
               this.router.navigate(['reset-password'])
             },
             error: () => {

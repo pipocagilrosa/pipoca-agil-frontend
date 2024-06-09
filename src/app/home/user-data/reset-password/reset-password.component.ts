@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RequestsService } from 'src/app/services/requests.service';
+import { ShareService } from 'src/app/services/share.service';
 import { ValidatorService } from 'src/app/services/validator.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class ResetPasswordComponent implements OnInit {
     private validatorService: ValidatorService,
     private fb: FormBuilder,
     private router: Router,
-    private requestService: RequestsService
+    private requestService: RequestsService,
+    private shareService: ShareService
   ) {
     this.validateToken = new ValidateToken()
   }
@@ -66,6 +68,7 @@ export class ResetPasswordComponent implements OnInit {
       }
       this.requestService.post<ValidateToken>(this.validateToken, 'user/confirm-pass', false).subscribe({
         next: () => {
+          this.shareService.requestToken('token', this.formDetails.value.value)
           this.router.navigate(['reset-password'])
         },
         error: () => {

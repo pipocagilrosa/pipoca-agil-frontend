@@ -7,7 +7,14 @@ export class Register {
 }
 
 export class UpdatePassword {
+    email?: string
     oldPassword?: string
+    newPassword?: string
+}
+
+export class ResetPassword {
+    favoriteWordPhrase?: string
+    token?: string
     newPassword?: string
 }
 
@@ -17,4 +24,8 @@ export class GenerateToken {
 
 export class ValidateToken {
     token?: string
+}
+
+export class ValidateKeyWord {
+    favoriteWordPhrase?: string
 }
