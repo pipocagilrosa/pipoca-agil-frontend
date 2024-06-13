@@ -29,17 +29,16 @@ export class DialogChangesComponent {
   }
 
   deleteAccount() {
-    this.dialogService.openConfirmDialog("Conta excluída com sucesso!", "home")
-    // this.requests.delete(this.sub, this.auth, "disable").subscribe({
-    //   next: (data) => {
-    //     this.dialogRef.close()
-    //     this.dialogService.openConfirmDialog("Conta excluída com sucesso!")
-    //     sessionStorage.clear()
-    //   },
-    //   error: (err) => {
-    //     console.log(err)
-    //   }
-    // })
+    this.requests.delete(this.sub, this.auth, "disable").subscribe({
+      next: (data) => {
+        this.dialogRef.close()
+        this.dialogService.openConfirmDialog("Conta excluída com sucesso!", "home")
+        sessionStorage.clear()
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
   }
 
   close() {
