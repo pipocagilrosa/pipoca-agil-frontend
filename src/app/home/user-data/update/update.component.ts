@@ -19,6 +19,8 @@ export class UpdateComponent implements OnInit, OnDestroy {
   private subscription: Subscription | undefined;
   accountDetails!: FormGroup
   loadedData = false
+  auth!: string
+  sub!: string
 
   constructor(
     private requests: RequestsService,
@@ -33,17 +35,15 @@ export class UpdateComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.createForm()
-    let auth!: string
-    let sub!: string
-    auth = sessionStorage.getItem("auth")!
-    sub = sessionStorage.getItem("sub")!
-    this.requests.get<Register>(auth, sub).subscribe({
+    this.auth = sessionStorage.getItem("auth")!
+    this.sub = sessionStorage.getItem("sub")!
+    this.requests.get<Register>(this.auth, this.sub).subscribe({
       next: (data) => {
         this.accountDetails.setValue({
           name: data.name,
-          email: data.email,
           birthDate: data.birthDate
         })
+        this.register.email = data.email
         this.loadedData = true
       },
       error: (err) => {
@@ -65,10 +65,6 @@ export class UpdateComponent implements OnInit, OnDestroy {
         this.validatorService.spaceValidator(),
         this.validatorService.characterValidator()
       ]),
-      email: new FormControl(' ', [
-        Validators.required,
-        Validators.email
-      ]),
       birthDate: new FormControl(' ', [
         Validators.required,
         this.validatorService.formatValidator(),
@@ -88,8 +84,17 @@ export class UpdateComponent implements OnInit, OnDestroy {
   }
 
   save() {
+    this.register.name = this.accountDetails.value.name
+    this.register.birthDate = this.accountDetails.value.birthDate
+
     if(this.accountDetails.valid) {
-      console.log("Save button activated")
+      this.requests.put(this.sub, this.register, this.auth, 'profile-update').subscribe(
+        {
+          next: (data) => {
+            this.dialogService.openConfirmDialog('Cadastro alterado com sucesso', 'user-data/update')
+          }
+        }
+      )
     }
   }
 }

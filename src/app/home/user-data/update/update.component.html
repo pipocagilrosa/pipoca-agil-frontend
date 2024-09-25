@@ -7,8 +7,8 @@
     </div>
     <div class="box-text">
         <form action="" [formGroup]="accountDetails">
-            <input class="input fake-input" type="text" value="..." *ngIf="!loadedData" disabled>
-            <input class="input enabled-input data-input" type="text" value="{{register.name}}" *ngIf="loadedData" formControlName="name"
+            <input class="input input-margin" type="text" value="..." *ngIf="!loadedData" disabled>
+            <input class="input enabled-input data-input" type="text" *ngIf="loadedData" formControlName="name"
                 id="name">
             <div class="error-field" *ngIf="loadedData">
                 <div *ngFor="let validation of validationMessages.name; let i = index">
@@ -18,9 +18,9 @@
                     </p>
                 </div>
             </div>
-            <input class="input fake-input" type="text" value="..." disabled *ngIf="!loadedData">
-            <input class="input enabled-input data-input" type="text" value="{{register.birthDate}}" *ngIf="loadedData" formControlName="birthDate"
-                id="birthDate">
+
+            <input class="input input-margin" type="text" value="..." disabled *ngIf="!loadedData">
+            <input class="input enabled-input data-input" type="text" *ngIf="loadedData" formControlName="birthDate" id="birthDate">
             <div class="error-field" *ngIf="loadedData">
                 <div *ngFor="let validation of validationMessages.birthDate; let i = index">
                     <p class="error-message"
@@ -29,20 +29,14 @@
                     </p>
                 </div>
             </div>
-            <input class="input fake-input" type="text" value="..." disabled *ngIf="!loadedData">
-            <input class="input enabled-input data-input" type="text" value="{{register.email}}" *ngIf="loadedData"
-            formControlName="email" id="email">
-            <div class="error-field" *ngIf="loadedData">
-                <div *ngFor="let validation of validationMessages.email; let i = index">
-                    <p class="error-message"
-                        *ngIf="accountDetails.get('email')?.hasError(validationMessages.email[i].type)">
-                        {{validationMessages.email[i].message}}
-                    </p>
-                </div>
-            </div>
-            <input class="input" type="text" value="**************" disabled *ngIf="loadedData">
+
+            <input class="input input-margin" type="text" value="..." disabled *ngIf="!loadedData">
+            <input class="input input-margin" type="text" value="{{register.email}}" disabled *ngIf="loadedData">
+
             <input class="input" type="text" value="..." disabled *ngIf="!loadedData">
-            <button class="save-button button" type="submit">
+            <input class="input" type="text" value="**************" disabled *ngIf="loadedData">
+
+            <button class="save-button button" type="submit" (click)="save()">
                 Salvar
             </button>
         </form>
