@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Todhri&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*DIVISÓRIAS*/
+#first-div {
+    background-color: #FFCF52;
+    height: 529px;
+}
+
+#first-div__text-content {
+    padding: 8% 0px 0px 10%;
+
+}
+
+#second-div {
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.second-div__flexbox {
+    display: flex;
+    width: 290px;
+    height: 290px;
+    flex-direction: column;
+    background-color: #E8E9D9;
+    border-radius: 40px 40px 70px 40px;
+    padding: 16px;
+    color: #0020C0;
+}
+
+#third-div {
+    background-color: #FFCF52;
+    width: 1442px;
+    height: 422px;
+}
+
+#fourth-div {
+    background-color: white;
+    color: #FFFFFF;
+    width: 1438px;
+    height: 529px;
+}
+
+button {
+    width: 207px;
+    height: 44px;
+    background-color: #0020C0;
+    border-radius: 50px;
+    font-style: normal;
+    color: #FFFFFF;
+    }
+
+/* Rectangle 98 */
+#rectangle {
+    padding-left: 8%;
+    position: absolute;
+    width: 45%;
+    height: 432px;
+    left: 802px;
+    top: 60px;
+    background: #FCFCFC;
+    border-radius: 10000px 0px 0px 10000px;
+}
+
+/*LETRAS*/
+
+h1{
+    margin-bottom: 4%;
+    font-family: "Fredoka", serif;
+    font-style: normal;
+    font-size: 40px;
+    font: bold;
+    line-height: 100%;
+}
+
+h2 {
+    font-style: normal;
+    font-size: 32px;
+    font: bold;
+    line-height: 100%;
+    font-weight: 763;
+    font-size:larger;
+}
+
+h3 {
+    font-family: "Fredoka", serif;
+    font-size: 20px;
+    margin: 0%;
+}
+
+p {
+    margin-bottom: 3%;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 30px;
+}

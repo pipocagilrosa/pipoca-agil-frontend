@@ -36,6 +36,10 @@ import { UpdateComponent } from './home/user-data/update/update.component';
 import { UpdatePasswordComponent } from './home/user-data/update-password/update-password.component';
 import { ForgetPasswordComponent } from './home/user-data/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './home/user-data/reset-password/reset-password.component';
+import { KnowledgeTrailInfoComponent } from './home/knowledge-trail-info/knowledge-trail-info.component';
+import { KnowledgeTrailInfoViewComponent } from './views/knowledge-trail-info-view/knowledge-trail-info-view.component';
+import { HeaderTwoComponent } from './template/header-two/header-two.component';
+import { FooterTwoComponent } from './template/footer-two/footer-two.component';
 
 
 @NgModule({
@@ -57,7 +61,11 @@ import { ResetPasswordComponent } from './home/user-data/reset-password/reset-pa
     UpdateComponent,
     UpdatePasswordComponent,
     ForgetPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    KnowledgeTrailInfoComponent,
+    KnowledgeTrailInfoViewComponent,
+    HeaderTwoComponent,
+    FooterTwoComponent
   ],
   imports: [
     BrowserModule,
