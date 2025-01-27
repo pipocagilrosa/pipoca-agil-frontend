@@ -4,42 +4,48 @@
 #first-div {
     background-color: #FFCF52;
     height: 529px;
+    position: relative
 }
 
 #first-div__text-content {
-    padding: 8% 0px 0px 10%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 8% 0px 0px 0px;
 
 }
 
 #second-div {
+    max-width: 1200px;
+    margin: 40px auto 20px auto;
     background-color: white;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
     align-items: center;
+    gap: 20px;
 }
 
 .second-div__flexbox {
     display: flex;
-    width: 290px;
-    height: 290px;
+    width: 285px;
+    height: 285px;
     flex-direction: column;
     background-color: #E8E9D9;
     border-radius: 40px 40px 70px 40px;
     padding: 16px;
     color: #0020C0;
+    margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
 #third-div {
     background-color: #FFCF52;
-    width: 1442px;
     height: 422px;
 }
 
 #fourth-div {
     background-color: white;
     color: #FFFFFF;
-    width: 1438px;
     height: 529px;
 }
 
@@ -56,10 +62,11 @@ button {
 #rectangle {
     padding-left: 8%;
     position: absolute;
+    box-sizing: border-box;
     width: 45%;
     height: 432px;
-    left: 802px;
-    top: 60px;
+    right: 0;
+    top: 0;
     background: #FCFCFC;
     border-radius: 10000px 0px 0px 10000px;
 }
