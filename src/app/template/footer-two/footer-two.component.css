@@ -1,8 +1,27 @@
-#div-footer {
-    display: flex;
-    margin: auto;
+#container-main {
+    position: relative;
     background-color: #F2F2F2;
+}
+
+#container-main__container-second {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
     align-items: center;
+}
+
+.container-main__container-link {
+    display: flex;
+}
+
+.container-main__container-img {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-main__container-icon {
+    margin-top: 50px;
 }
 
 .div-icons {
@@ -18,4 +37,10 @@
 #footer-img1 {
     display: flex;
     align-items: center;
+}
+
+#arrow-img {
+    position: absolute;
+    right: 30px;
+    bottom: 50px;
 }
