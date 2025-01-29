@@ -39,14 +39,49 @@
 }
 
 #third-div {
+    margin: auto;
     background-color: #FFCF52;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     height: 422px;
+}
+
+.third-div__title {
+
+}
+
+.third-div__content {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    font-weight: bolder;
+    justify-content: center
+}
+
+.third-div__flexbox {
+    display: flex;
+    flex-direction: column;
 }
 
 #fourth-div {
     background-color: white;
-    color: #FFFFFF;
     height: 529px;
+    margin: auto;
+    max-width: 100%;
+    display: flex
+}
+
+.fourth-div__content {
+
+}
+
+.fourth-div__img {
+    display: flex;
+    justify-content: end;
+    padding-top: 8%;
 }
 
 button {

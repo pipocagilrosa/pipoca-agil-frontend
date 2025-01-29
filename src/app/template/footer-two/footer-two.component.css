@@ -1,0 +1,21 @@
+#div-footer {
+    display: flex;
+    margin: auto;
+    background-color: #F2F2F2;
+    align-items: center;
+}
+
+.div-icons {
+    display: flex;
+    flex-direction: row;
+    border-radius: 40%;
+    border-bottom: #F2F2F2;
+    padding: 50px 50px 50px 50px;
+    justify-content: center;
+    text-align: center;
+}
+
+#footer-img1 {
+    display: flex;
+    align-items: center;
+}
