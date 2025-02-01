@@ -21,6 +21,7 @@ export class UpdateComponent implements OnInit, OnDestroy {
   loadedData = false
   auth!: string
   sub!: string
+  userEmail!: string | undefined
 
   constructor(
     private requests: RequestsService,
@@ -43,7 +44,7 @@ export class UpdateComponent implements OnInit, OnDestroy {
           name: data.name,
           birthDate: data.birthDate
         })
-        this.register.email = data.email
+        this.userEmail = data.email
         this.loadedData = true
       },
       error: (err) => {
@@ -86,7 +87,6 @@ export class UpdateComponent implements OnInit, OnDestroy {
   save() {
     this.register.name = this.accountDetails.value.name
     this.register.birthDate = this.accountDetails.value.birthDate
-
     if(this.accountDetails.valid) {
       this.requests.put(this.sub, this.register, this.auth, 'profile-update').subscribe(
         {
