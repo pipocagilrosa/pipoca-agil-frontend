@@ -22,6 +22,11 @@
 
 .container-main__container-icon {
     margin-top: 50px;
+    color: #252525;
+}
+
+.container-main__container-icon:hover {
+    color: black;
 }
 
 .div-icons {
@@ -32,6 +37,12 @@
     padding: 50px 50px 50px 50px;
     justify-content: center;
     text-align: center;
+    color: #252525;
+    cursor: pointer
+}
+
+.div-icons:hover {
+    color: black;
 }
 
 #footer-img1 {
@@ -44,3 +55,4 @@
     right: 30px;
     bottom: 50px;
 }
+
