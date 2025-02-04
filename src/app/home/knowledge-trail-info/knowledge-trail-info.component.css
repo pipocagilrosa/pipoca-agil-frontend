@@ -39,6 +39,11 @@
     color: #0020C0;
     margin-bottom: 20px;
     box-sizing: border-box;
+    cursor: pointer;
+}
+
+.second-div__flexbox:hover {
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.322);
 }
 
 #third-div {
