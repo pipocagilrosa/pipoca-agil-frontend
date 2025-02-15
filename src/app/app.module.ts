@@ -40,6 +40,8 @@ import { KnowledgeTrailInfoComponent } from './home/knowledge-trail-info/knowled
 import { KnowledgeTrailInfoViewComponent } from './views/knowledge-trail-info-view/knowledge-trail-info-view.component';
 import { HeaderTwoComponent } from './template/header-two/header-two.component';
 import { FooterTwoComponent } from './template/footer-two/footer-two.component';
+import { KnowledgeTrailUxuiComponent } from './home/knowledge-trail-uxui/knowledge-trail-uxui.component';
+import { KnowledgeTrailUxuiViewComponent } from './views/knowledge-trail-uxui-view/knowledge-trail-uxui-view.component';
 
 
 @NgModule({
@@ -65,7 +67,9 @@ import { FooterTwoComponent } from './template/footer-two/footer-two.component';
     KnowledgeTrailInfoComponent,
     KnowledgeTrailInfoViewComponent,
     HeaderTwoComponent,
-    FooterTwoComponent
+    FooterTwoComponent,
+    KnowledgeTrailUxuiComponent,
+    KnowledgeTrailUxuiViewComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,89 @@
+#div-ux01 {
+    max-width: 90rem;
+    height: 53rem;
+    background-color: #FFCF52;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+h1 {
+    margin: 106px 417px 64px 126px;
+    font-family: "Fredoka", serif;
+    font-weight: 600px;
+    font-size: 40px;
+    color: #252525;
+}
+
+.div-ux01__p1 {
+    margin: 0px 417px 71px 126px;
+    font-family: sans-serif;
+    font-weight: 400px;
+    font-size: 24px;
+    line-height: 30px;
+    color: #252525;
+}
+
+.div-ux01__p2 {
+    font-family: sans-serif;
+    margin: 71px 601px 0px 126px;
+    font-weight: 400px;
+    font-size: 22px;
+    line-height: 30px;
+    color: #252525;
+}
+
+.div-ux01__img {
+    margin: 201px 161px 201px 840px;
+    padding-bottom: 300px;
+    position: absolute;
+}
+
+/* INÍCIO DA div-ux02
+*/
+
+.div-ux02__text-content {
+    font-family: sans-serif;
+    margin: 71px 601px 0px 126px;
+    font-weight: 400px;
+    font-size: 22px;
+    line-height: 30px;
+    color: #252525;
+}
+
+.div-ux01__p3 {
+    margin: 56px 243px 43px 129px;
+    font-family: sans-serif;
+    font-weight: 400px;
+    font-size: 24px;
+    line-height: 30px;
+    color: #252525;
+}
+
+button {
+    border: 2px solid #0020c0;
+    margin: 43px 1108px 40px 129px;
+    width: 207px;
+    height: 44px;
+    background-color: #0020C0;
+    border-radius: 50px;
+    font-family: "Fredoka", serif;
+    font-style: normal;
+    font-weight: 500px;
+    font-size: 20px;
+    line-height: 22.4px;
+    color: #FFFFFF;
+    cursor: pointer
+    }
+
+button:hover {
+    background-color: #ffffff;
+    color: #0020C0;
+    transition: background-color 0.5s ease, transform 0.3s ease;
+}
+
+.div-ux02__img {
+    width: 800px;
+    height: 1669px;
+    margin: 40px 243px 43px 398px;
+}

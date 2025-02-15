@@ -9,6 +9,8 @@ import { UpdatePasswordComponent } from './home/user-data/update-password/update
 import { ForgetPasswordComponent } from './home/user-data/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './home/user-data/reset-password/reset-password.component';
 import { KnowledgeTrailInfoViewComponent } from './views/knowledge-trail-info-view/knowledge-trail-info-view.component';
+import { KnowledgeTrailUxuiViewComponent } from './views/knowledge-trail-uxui-view/knowledge-trail-uxui-view.component';
+
 
 const routes: Routes = [
   {
@@ -50,6 +52,10 @@ const routes: Routes = [
   {
     path: "knowledge-trail-info",
     component: KnowledgeTrailInfoViewComponent
+  },
+  {
+    path: "knowledge-trail-uxui",
+    component: KnowledgeTrailUxuiViewComponent
   }
 ];
 
