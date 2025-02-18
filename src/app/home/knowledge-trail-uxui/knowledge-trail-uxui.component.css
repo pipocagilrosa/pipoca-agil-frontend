@@ -1,10 +1,17 @@
+div {
+    max-width: 1200px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+
 #div-ux01 {
     max-width: 90rem;
     height: 53rem;
     background-color: #FFCF52;
     display: flex;
     flex-direction: column;
-    position: relative;
+    align-items: center;
 }
 
 h1 {
@@ -13,6 +20,8 @@ h1 {
     font-weight: 600px;
     font-size: 40px;
     color: #252525;
+    display: flex;
+    flex-direction: column;
 }
 
 .div-ux01__p1 {
@@ -22,6 +31,8 @@ h1 {
     font-size: 24px;
     line-height: 30px;
     color: #252525;
+    display: flex;
+    flex-direction: column;
 }
 
 .div-ux01__p2 {
@@ -31,16 +42,26 @@ h1 {
     font-size: 22px;
     line-height: 30px;
     color: #252525;
+    display: flex;
+    flex-direction: column;
 }
 
 .div-ux01__img {
-    margin: 201px 161px 201px 840px;
-    padding-bottom: 300px;
-    position: absolute;
+    height: 439px;
+    width: 439px;
+    margin: -390px 161px 0px 840px;
+    display: flex;
+    flex-direction: column;
+
 }
 
 /* INÍCIO DA div-ux02
 */
+
+#div-ux02 {
+    display: flex;
+    flex-direction: column;
+}
 
 .div-ux02__text-content {
     font-family: sans-serif;
@@ -73,7 +94,7 @@ button {
     font-size: 20px;
     line-height: 22.4px;
     color: #FFFFFF;
-    cursor: pointer
+    cursor: pointer;
     }
 
 button:hover {
@@ -83,7 +104,52 @@ button:hover {
 }
 
 .div-ux02__img {
-    width: 800px;
-    height: 1669px;
-    margin: 40px 243px 43px 398px;
+    height: 0px;
+    padding-right: 300px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+}
+
+.div-ux02__img01 {
+    width: 5rem;
+    height: 5rem;
+}
+
+.div-ux02__img02 {
+    padding-left: 50px;
+    width: 17rem;
+    height: 15rem;
+}
+
+.div-ux02__img03 {
+    padding-right: 50px;
+    width: 17rem;
+    height: 15rem;
+}
+
+.div-ux02__text-content02 {
+    display:flex;
+    flex-direction: row;
+    padding-left: 600px;
+    padding-bottom: 100px;
+}
+
+h3 {
+    font-family: sans-serif;
+    font-weight: 600px;
+    font-size: 32px;
+    line-height: 43.58px;
+    padding-bottom: 57px;
+    padding-left: 10px;
+    color: #252525;
+}
+.div-ux01__p4 {
+    font-family: sans-serif;
+    font-weight: 400px;
+    font-size: 22px;
+    line-height: 30px;
+    color: #252525;
 }
