@@ -1,12 +1,4 @@
-div {
-    max-width: 1200px;
-    padding: 0px;
-    margin: 0px;
-    border: 0px;
-}
-
 #div-ux01 {
-    max-width: 90rem;
     height: 53rem;
     background-color: #FFCF52;
     display: flex;
@@ -14,8 +6,13 @@ div {
     align-items: center;
 }
 
+.div-ux01--center {
+    max-width: 75rem;
+    margin: auto
+}
+
 h1 {
-    margin: 106px 417px 64px 126px;
+    margin-bottom: 4rem;
     font-family: "Fredoka", serif;
     font-weight: 600px;
     font-size: 40px;
@@ -25,7 +22,7 @@ h1 {
 }
 
 .div-ux01__p1 {
-    margin: 0px 417px 71px 126px;
+    margin: 0px 417px 71px 0;
     font-family: sans-serif;
     font-weight: 400px;
     font-size: 24px;
@@ -37,7 +34,7 @@ h1 {
 
 .div-ux01__p2 {
     font-family: sans-serif;
-    margin: 71px 601px 0px 126px;
+    margin: 71px 601px 0px 0;
     font-weight: 400px;
     font-size: 22px;
     line-height: 30px;
@@ -61,11 +58,13 @@ h1 {
 #div-ux02 {
     display: flex;
     flex-direction: column;
+    max-width: 75rem;
+    margin: auto
 }
 
 .div-ux02__text-content {
     font-family: sans-serif;
-    margin: 71px 601px 0px 126px;
+    margin: 71px 601px 0px 0;
     font-weight: 400px;
     font-size: 22px;
     line-height: 30px;
@@ -73,7 +72,7 @@ h1 {
 }
 
 .div-ux01__p3 {
-    margin: 56px 243px 43px 129px;
+    margin: 56px 243px 43px 0;
     font-family: sans-serif;
     font-weight: 400px;
     font-size: 24px;
@@ -83,7 +82,7 @@ h1 {
 
 button {
     border: 2px solid #0020c0;
-    margin: 43px 1108px 40px 129px;
+    margin: 43px 0 40px 0;
     width: 207px;
     height: 44px;
     background-color: #0020C0;
@@ -103,9 +102,12 @@ button:hover {
     transition: background-color 0.5s ease, transform 0.3s ease;
 }
 
+.div-ux02__container {
+    display: flex;
+    margin: auto;
+}
+
 .div-ux02__img {
-    height: 0px;
-    padding-right: 300px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -133,7 +135,6 @@ button:hover {
 .div-ux02__text-content02 {
     display:flex;
     flex-direction: row;
-    padding-left: 600px;
     padding-bottom: 100px;
 }
 
