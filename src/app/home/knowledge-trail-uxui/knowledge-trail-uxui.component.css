@@ -1,14 +1,25 @@
 #div-ux01 {
-    height: 53rem;
     background-color: #FFCF52;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding-top: 6.25rem;
+    padding-bottom: 12.5rem;
 }
 
 .div-ux01--center {
     max-width: 75rem;
     margin: auto;
+    position: relative
+}
+
+.div-ux01__text-content {
+    width: 62%
+}
+
+.div-ux01__img {
+    position: absolute;
+    height: 439px;
+    width: 439px;
+    top: 70px;
+    right: 80px;
 }
 
 h1 {
@@ -22,36 +33,22 @@ h1 {
 }
 
 .div-ux01__p1 {
-    margin: 0px 417px 71px 0;
+    margin: 0px 0 71px 0;
     font-family: sans-serif;
     font-weight: 400px;
     font-size: 24px;
     line-height: 30px;
     color: #252525;
-    display: flex;
-    flex-direction: column;
 }
 
 .div-ux01__p2 {
     font-family: sans-serif;
-    margin: 71px 601px 0px 0;
+    padding-right: 6rem;
+    margin: 71px 0 0px 0;
     font-weight: 400px;
     font-size: 22px;
     line-height: 30px;
     color: #252525;
-    display: flex;
-    flex-direction: column;
-}
-
-
-.div-ux01__img {
-    height: 439px;
-    width: 439px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    padding: 16rem 0 3.93rem 45rem;
 }
 
 
@@ -116,11 +113,6 @@ button:hover {
     transition: background-color 0.5s ease, transform 0.3s ease;
 }
 
-.div-ux02__container {
-    display: flex;
-    margin: auto;
-}
-
 .div-ux02--center {
     display: flex;
     margin: auto;
@@ -139,30 +131,23 @@ button:hover {
 
 .div-ux02__img02 {
     padding-left: 3.12rem;
-    width: 17rem;
     height: 15rem;
 }
 
 .div-ux02__img03 {
     padding-right: 3.12rem;
-    width: 17rem;
     height: 15rem;
-}
-
-.div-ux02__text-content02 {
-    margin: auto;
-    display:flex;
-    align-items: center;
 }
 
 .div-ux02--center02 {
     display: flex;
-    margin: auto;
     flex-direction: column;
 }
 
 .div-ux02__title01 {
-    padding: 20px 0 57px 10px;
+    display: flex;
+    align-items: center;
+    height: 80px;
 }
 
 h3 {
@@ -175,7 +160,9 @@ h3 {
 
 .div-ux02__paragraph01{
     display: flex;
-    padding: 0 0 86px 0;
+    align-items: center;
+    height: 240px;
+    margin-left: 1.25rem;
 }
 
 .div-ux02__p4 {
@@ -184,4 +171,5 @@ h3 {
     font-size: 22px;
     line-height: 30px;
     color: #252525;
+    margin: 0
 }
