@@ -8,7 +8,7 @@
     <div class="box-text">
         <form action="" [formGroup]="accountDetails">
             <input class="input input-margin" type="text" value="..." *ngIf="!loadedData" disabled>
-            <input class="input enabled-input data-input" type="text" *ngIf="loadedData" formControlName="name"
+            <input class="input input-1 enabled-input data-input" type="text" *ngIf="loadedData" formControlName="name"
                 id="name">
             <div class="error-field" *ngIf="loadedData">
                 <div *ngFor="let validation of validationMessages.name; let i = index">

@@ -50,7 +50,7 @@ const routes: Routes = [
     component: LoginViewComponent 
   },
   {
-    path: "knowledge-trail-info",
+    path: "knowledge-trail",
     component: KnowledgeTrailInfoViewComponent
   },
   {
@@ -60,7 +60,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'top'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
