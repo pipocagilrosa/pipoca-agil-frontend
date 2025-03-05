@@ -52,7 +52,7 @@
 }
 
 #arrow-img {
-    position: absolute;
+    position: fixed;
     right: 30px;
     bottom: 50px;
 }
