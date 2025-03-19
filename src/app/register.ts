@@ -6,6 +6,28 @@ export class Register {
     favoriteWordPhrase?: string
 }
 
+export class Career {
+    id?: string
+    index?: number
+    area?: string
+    description?: string
+    title?: string
+    subtitle?: string
+    content?: string
+    image?: string
+    contentTitle?: string
+    contentSubtitle?: string
+    courses?: Array<Course>
+}
+
+export class Course {
+    id?: string
+    title?: string
+    description?: string
+    topic?: string
+    level?: string
+}
+
 export class UpdatePassword {
     email?: string
     oldPassword?: string

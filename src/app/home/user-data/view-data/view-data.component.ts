@@ -34,7 +34,8 @@ export class ViewDataComponent implements OnInit, OnDestroy {
     let sub!: string
     auth = sessionStorage.getItem("auth")!
     sub = sessionStorage.getItem("sub")!
-    let response = this.requests.get<Register>(auth, sub).subscribe({
+    const path = `user/${sub}/profile`
+    let response = this.requests.get<Register>(true, path, auth).subscribe({
       next: (data) => {
         this.register = {
           name: data.name,

@@ -54,7 +54,8 @@ export class UpdatePasswordComponent implements OnInit {
     let sub!: string
     auth = sessionStorage.getItem("auth")!
     sub = sessionStorage.getItem("sub")!
-    this.requests.get<Register>(auth, sub).subscribe({
+    const path = `user/${sub}/profile`
+    this.requests.get<Register>(true, path, auth).subscribe({
       next: (data) => {
         this.accountDetails.get('email')?.setValue(data.email)
         console.log(this.accountDetails.value.email)

@@ -38,7 +38,8 @@ export class UpdateComponent implements OnInit, OnDestroy {
     this.createForm()
     this.auth = sessionStorage.getItem("auth")!
     this.sub = sessionStorage.getItem("sub")!
-    this.requests.get<Register>(this.auth, this.sub).subscribe({
+    const path = `user/${this.sub}/profile`
+    this.requests.get<Register>(true, path, this.auth).subscribe({
       next: (data) => {
         this.accountDetails.setValue({
           name: data.name,

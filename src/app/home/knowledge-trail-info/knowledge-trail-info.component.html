@@ -13,40 +13,11 @@
 </div>
 
 <div id="second-div">
-    <div class="second-div__flexbox">
+    <div class="second-div__flexbox" *ngFor="let career of careerList"
+    (click)="goToComponent(career)">
         <img src="assets/scrum.png" alt="" width="48px" height="48px">
-        <h3 class="second-div__title">Scrum Fundamentos</h3>
-        <p>Introdução ao Scrum, papéis, sprints, backlog, entregas incrementais.</p>
-    </div>
-    <div class="second-div__flexbox">
-        <img src="assets/Po.png" alt="" width="48px" height="48px">
-        <h3 class="second-div__title">Product Owner</h3>
-        <p>Gestão de backlog e stakeholders, métricas e feedbacks.</p>
-    </div>
-    <div class="second-div__flexbox">
-        <img src="assets/SM.png" alt="" width="48px" height="48px">
-        <h3 class="second-div__title">Scrum Master</h3>
-        <p>Introdução ao Scrum, papéis, sprints, backlog, entregas incrementais.</p>
-    </div>
-    <div routerLink="/knowledge-trail-uxui" class="second-div__flexbox">
-        <img src="assets/UI.png" alt="" width="48px" height="48px">
-        <h3 class="second-div__title">UX/UI Design</h3>
-        <p>Princípios de UX e UI Design, pesquisa e testes de usuário.</p>
-    </div>
-    <div class="second-div__flexbox">
-        <img src="assets/Frontend.png" alt="" width="48px" height="48px">
-        <h3 class="second-div__title">Desenvolvimento Frontend</h3>
-        <p>HTML, CSS, Javascript, frameworks.</p>
-    </div>
-    <div class="second-div__flexbox">
-        <img src="assets/desenvolvedor.png" alt="" width="48px" height="48px">
-        <h3 class="second-div__title">Desenvolvimento Backend</h3>
-        <p>Estrutura de servidores, criação de APIs, banco de dados, autenticação.</p>
-    </div>
-    <div class="second-div__flexbox">
-        <img src="assets/QA.png" alt="" width="48px" height="48px">
-        <h3 class="second-div__title">QA (Quality Assurance)</h3>
-        <p>Testes (unitários, integração, automação), planejamento de testes.</p>
+        <h3 class="second-div__title">{{career.area}}</h3>
+        <p>{{career.description}}</p>
     </div>
 </div>
 
