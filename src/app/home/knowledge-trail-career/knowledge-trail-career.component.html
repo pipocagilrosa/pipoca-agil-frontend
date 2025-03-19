@@ -1,23 +1,19 @@
-<div>
+<div style="margin-bottom: 3rem;">
     <div id="div-ux01">
         <div class="div-ux01--center">
             <div class="div-ux01__text-content">
                 <h1>
-                    <b>Nossa Trilha UX/UI Design</b>
+                    <b>{{career!.title}}</b>
                 </h1>
                 <p class="div-ux01__p1">
-                    Encontre um conteúdo selecionado e estruturado para apoiar o seu crescimento como designer!
+                    {{career!.subTitle}}
                 </p>
                 <p class="div-ux01__p2">
-                    A Curadoria de UX/UI Design oferece trilhas organizadas que abrangem desde o básico ao avançado,
-                    focadas nas habilidades e competências mais valorizadas do mercado. Com base em pesquisas para
-                    entender as necessidades da comunidade, nosso conteúdo é desenvolvido com cuidado e dedicação por
-                    voluntários experientes na área de UX e UI, criando uma experiência de aprendizado prática e
-                    alinhada às demandas reais do setor.
+                    {{career!.content}}
                 </p>
             </div>
             <div class="div-ux01__img">
-                <img src="./assets/amico.svg" alt="">
+                <img src="https://i.ibb.co/wHptSyS/UI-UX-team-amico.png" alt="" height="439px" width="439px">
             </div>
         </div>
 
@@ -25,11 +21,10 @@
     <div id="div-ux02">
         <div id="div-ux02__text-content">
             <h2>
-                <b>Trilha de UX/UI Design</b>
+                <b>{{career!.contentTitle}}</b>
             </h2>
             <p class="div-ux02__p3">
-                A Trilha de UX/UI Design é um percurso de aprendizado voltado para quem deseja entender e desenvolver
-                habilidades nas áreas de experiência do usuário (UX) e interface do usuário (UI).
+                {{career!.contentSubtitle}}
             </p>
             <button>Inscreva-se na Trilha</button>
         </div>
@@ -51,53 +46,51 @@
                     </h3>
                 </div>
                 <div class="div-ux02__paragraph01">
-                    <p class="div-ux02__p4"> &bull; Introdução ao UX/Ui Design<br>
-                        &bull; Princípios básicos <br>
-                        &bull; Ferramentas de Design <br>
-                        &bull; Pesquisa e análise de usuário <br>
-                    </p>
+                    <div *ngFor="let course of career!.courses![0].items; let i = index">
+                        <p class="div-ux02__p4">
+                            &bull; {{course.topic}}
+                        </p>
+                    </div>
                 </div>
                 <div class="div-ux02__title01">
                     <h3 class="div-ux02__p4"><b>Intermediário</b></h3>
                 </div>
                 <div class="div-ux02__paragraph01">
-                    <p class="div-ux02__p4">
-                        &bull; Métodos de design <br>
-                        &bull; Acessibilidade e Inclusão <br>
-                        &bull; Metodologias ágeis (Scrum e Kanban) <br>
-                        &bull; Análise de Dados e Métricas <br>
-                    </p>
+                    <div *ngFor="let course of career!.courses![1].items; let i = index">
+                        <p class="div-ux02__p4">
+                            &bull; {{course.topic}}
+                        </p>
+                    </div>
                 </div>
                 <div class="div-ux02__title01">
                     <h3 class="div-ux02__p4"><b>Avançado</b></h3>
                 </div>
                 <div class="div-ux02__paragraph01">
-                    <p class="div-ux02__p4">
-                        &bull; Desenvolvimento de Portfólio Avançado <br>
-                        &bull; Estratégia de Design e Negócios <br>
-                        &bull; Gestão de Design <br>
-                        &bull; Tendências e Inovações em UX/UI <br>
-                    </p>
+                    <div *ngFor="let course of career!.courses![2].items; let i = index">
+                        <p class="div-ux02__p4">
+                            &bull; {{course.topic || 'Valor não disponível' }}
+                        </p>
+                    </div>
                 </div>
                 <div class="div-ux02__title01">
                     <h3 class="div-ux02__p4"><b>Especializado</b></h3>
                 </div>
                 <div class="div-ux02__paragraph01">
-                    <p class="div-ux02__p4">
-                        &bull; UX Research <br>
-                        &bull; UX Writing <br>
-                        &bull; UI Animation e microinterações <br>
-                    </p>
+                    <div *ngFor="let course of career!.courses![0].items; let i = index">
+                        <p class="div-ux02__p4">
+                            &bull; {{course.topic}}
+                        </p>
+                    </div>
                 </div>
                 <div class="div-ux02__title01">
                     <h3 class="div-ux02__p4"><b>Aprendizado Constante</b></h3>
                 </div>
                 <div class="div-ux02__paragraph01">
-                    <p class="div-ux02__p4">
-                        &bull; Figma Avançado <br>
-                        &bull; Análise de estudos de caso complexo <br>
-                        &bull; Ética no design e impactos sociais <br>
-                    </p>
+                    <div *ngFor="let course of career!.courses![1].items; let i = index">
+                        <p class="div-ux02__p4">
+                            &bull; {{course.topic}}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

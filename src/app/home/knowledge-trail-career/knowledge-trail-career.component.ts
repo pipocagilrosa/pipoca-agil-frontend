@@ -10,25 +10,25 @@ import { RequestsService } from 'src/app/services/requests.service';
 })
 export class KnowledgeTrailCareerComponent implements OnInit {
 
-  careerId?: string
-  courseList: Array<Course> = []
+  career?: Career
 
   constructor(
     private router: Router,
     private requests: RequestsService) {
+      this.career = new Career()
   }
 
   ngOnInit(): void {
     const id = localStorage.getItem('careerId')
     if (id) {
-      this.careerId = id
+      this.career!.id = id
     }
 
     // Corrigir para que ao invés de retornar um array de courses retornar um objeto career
-    const path = `career-tracks/${this.careerId}/courses`
-    this.requests.get<Array<Course>>(false, 'career-tracks').subscribe({
+    const path = `career-tracks/${this.career!.id}/courses`
+    this.requests.get<Career>(false, path).subscribe({
       next: (data) => {
-        this.courseList = data
+        this.career = data
       }, error: (err) => {
         console.log(err)
       }

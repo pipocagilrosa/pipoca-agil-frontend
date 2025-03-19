@@ -12,7 +12,7 @@ export class Career {
     area?: string
     description?: string
     title?: string
-    subtitle?: string
+    subTitle?: string
     content?: string
     image?: string
     contentTitle?: string
@@ -26,6 +26,7 @@ export class Course {
     description?: string
     topic?: string
     level?: string
+    items?: any
 }
 
 export class UpdatePassword {

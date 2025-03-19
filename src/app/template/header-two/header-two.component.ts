@@ -1,5 +1,6 @@
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-two',
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class HeaderTwoComponent {
 
-  constructor(private location: Location) { }
+  constructor() { }
 
   goBack() {
     window.history.back(); 
