@@ -15,7 +15,7 @@
 <div id="second-div">
     <div class="second-div__flexbox" *ngFor="let career of careerList"
     (click)="goToComponent(career)">
-        <img src="assets/scrum.png" alt="" width="48px" height="48px">
+        <img [src]="career.image" alt="" width="48px" height="48px">
         <h3 class="second-div__title">{{career.area}}</h3>
         <p>{{career.description}}</p>
     </div>

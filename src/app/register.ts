@@ -11,13 +11,14 @@ export class Career {
     index?: number
     area?: string
     description?: string
+    contentImage?: string
     title?: string
     subTitle?: string
     content?: string
     image?: string
     contentTitle?: string
     contentSubtitle?: string
-    courses?: Array<Course>
+    categories?: Array<Course>
 }
 
 export class Course {

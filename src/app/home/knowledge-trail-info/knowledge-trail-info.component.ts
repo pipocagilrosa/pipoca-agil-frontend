@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Career } from 'src/app/register';
 import { RequestsService } from 'src/app/services/requests.service';
 
@@ -14,26 +14,21 @@ export class KnowledgeTrailInfoComponent implements OnInit {
 
   constructor(
       private requests: RequestsService,
-      private router: Router
+      private router: Router,
+      private activatedRoute: ActivatedRoute
     ) {
     }
 
   ngOnInit(): void {
-    this.requests.get<Array<Career>>(false, 'career-tracks').subscribe({
-      next: (data) => {
-        this.careerList = data
-        console.log(this.careerList)
-      }, error: (err) => {
-        console.log(err)
-      }
+    this.activatedRoute.data.subscribe(({ careers }) => {
+      console.log(careers)
+      this.careerList = careers
+      console.log(this.careerList)
     })
   }
 
-  goToComponent(career: Career) {
-
-    localStorage.setItem('careerId', career.id!)
-    
-    this.router.navigate([`/knowledge-trail/${career.index}`])
+  goToComponent(career: Career) {    
+    this.router.navigate([`/knowledge-trail/${career.id}`])
   }
 
 }

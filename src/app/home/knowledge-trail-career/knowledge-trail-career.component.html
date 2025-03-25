@@ -1,4 +1,4 @@
-<div style="margin-bottom: 3rem;">
+<div style="margin-bottom: 5rem;">
     <div id="div-ux01">
         <div class="div-ux01--center">
             <div class="div-ux01__text-content">
@@ -13,7 +13,7 @@
                 </p>
             </div>
             <div class="div-ux01__img">
-                <img src="https://i.ibb.co/wHptSyS/UI-UX-team-amico.png" alt="" height="439px" width="439px">
+                <img [src]="career!.contentImage || 'assets/bro.png'" alt="" height="439px" width="439px">
             </div>
         </div>
 
@@ -36,9 +36,6 @@
                 <img class="div-ux02__img03" src="./assets/Line 02.svg" alt="">
                 <img class="div-ux02__img01" src="./assets/Ponto da carreira 03.svg" alt="">
                 <img class="div-ux02__img02" src="./assets/Line 03.svg" alt="">
-                <img class="div-ux02__img01" src="./assets/Ponto da carreira 04.svg" alt="">
-                <img class="div-ux02__img03" src="./assets/Line 04.svg" alt="">
-                <img class="div-ux02__img01" src="./assets/Ponto da carreira 05.svg" alt="">
             </div>
             <div class="div-ux02--center02">
                 <div class="div-ux02__title01">
@@ -46,7 +43,7 @@
                     </h3>
                 </div>
                 <div class="div-ux02__paragraph01">
-                    <div *ngFor="let course of career!.courses![0].items; let i = index">
+                    <div *ngFor="let course of career!.categories![0].items; let i = index">
                         <p class="div-ux02__p4">
                             &bull; {{course.topic}}
                         </p>
@@ -56,7 +53,7 @@
                     <h3 class="div-ux02__p4"><b>Intermediário</b></h3>
                 </div>
                 <div class="div-ux02__paragraph01">
-                    <div *ngFor="let course of career!.courses![1].items; let i = index">
+                    <div *ngFor="let course of career!.categories![1].items; let i = index">
                         <p class="div-ux02__p4">
                             &bull; {{course.topic}}
                         </p>
@@ -66,29 +63,9 @@
                     <h3 class="div-ux02__p4"><b>Avançado</b></h3>
                 </div>
                 <div class="div-ux02__paragraph01">
-                    <div *ngFor="let course of career!.courses![2].items; let i = index">
+                    <div *ngFor="let course of career!.categories![2].items; let i = index">
                         <p class="div-ux02__p4">
                             &bull; {{course.topic || 'Valor não disponível' }}
-                        </p>
-                    </div>
-                </div>
-                <div class="div-ux02__title01">
-                    <h3 class="div-ux02__p4"><b>Especializado</b></h3>
-                </div>
-                <div class="div-ux02__paragraph01">
-                    <div *ngFor="let course of career!.courses![0].items; let i = index">
-                        <p class="div-ux02__p4">
-                            &bull; {{course.topic}}
-                        </p>
-                    </div>
-                </div>
-                <div class="div-ux02__title01">
-                    <h3 class="div-ux02__p4"><b>Aprendizado Constante</b></h3>
-                </div>
-                <div class="div-ux02__paragraph01">
-                    <div *ngFor="let course of career!.courses![1].items; let i = index">
-                        <p class="div-ux02__p4">
-                            &bull; {{course.topic}}
                         </p>
                     </div>
                 </div>

@@ -10,6 +10,8 @@ import { ForgetPasswordComponent } from './home/user-data/forget-password/forget
 import { ResetPasswordComponent } from './home/user-data/reset-password/reset-password.component';
 import { KnowledgeTrailInfoViewComponent } from './views/knowledge-trail-info-view/knowledge-trail-info-view.component';
 import { KnowledgeTrailCareerViewComponent } from './views/knowledge-trail-career-view/knowledge-trail-career-view.component';
+import { KnowledgeTrailInfoResolver } from './home/knowledge-trail-info/knowledge-trail-info.resolve';
+import { KnowledgeTrailCareerResolver } from './home/knowledge-trail-career/knowledge-trail-career.resolve';
 
 
 const routes: Routes = [
@@ -51,11 +53,17 @@ const routes: Routes = [
   },
   {
     path: "knowledge-trail",
-    component: KnowledgeTrailInfoViewComponent
+    component: KnowledgeTrailInfoViewComponent,
+    resolve: {
+      careers: KnowledgeTrailInfoResolver
+    }
   },
   {
     path: "knowledge-trail/:career",
-    component: KnowledgeTrailCareerViewComponent
+    component: KnowledgeTrailCareerViewComponent,
+    resolve: {
+      career: KnowledgeTrailCareerResolver
+    }
   }
 ];
 

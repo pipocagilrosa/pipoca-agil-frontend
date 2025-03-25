@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Career, Course } from 'src/app/register';
 import { RequestsService } from 'src/app/services/requests.service';
 
@@ -14,24 +14,15 @@ export class KnowledgeTrailCareerComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private requests: RequestsService) {
+    private requests: RequestsService,
+    private activatedRoute: ActivatedRoute
+  ) {
       this.career = new Career()
   }
 
   ngOnInit(): void {
-    const id = localStorage.getItem('careerId')
-    if (id) {
-      this.career!.id = id
-    }
-
-    // Corrigir para que ao invés de retornar um array de courses retornar um objeto career
-    const path = `career-tracks/${this.career!.id}/courses`
-    this.requests.get<Career>(false, path).subscribe({
-      next: (data) => {
-        this.career = data
-      }, error: (err) => {
-        console.log(err)
-      }
+    this.activatedRoute.data.subscribe(({ career }) => {
+      this.career = career
     })
   }
 }
