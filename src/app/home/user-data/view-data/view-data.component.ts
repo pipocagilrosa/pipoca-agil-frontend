@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Register } from 'src/app/register';
 import { DialogService } from 'src/app/services/dialog.service';
@@ -17,36 +17,24 @@ export class ViewDataComponent implements OnInit, OnDestroy {
   register: Register
   private subscription: Subscription | undefined;
 
-  loadedData = false
-
   constructor(
     private requests: RequestsService,
     private shareService: ShareService,
     private validatorService: ValidatorService,
     private dialogService: DialogService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
     this.register = new Register()
   }
 
   ngOnInit(): void {
-    let auth!: string
-    let sub!: string
-    auth = sessionStorage.getItem("auth")!
-    sub = sessionStorage.getItem("sub")!
-    const path = `user/${sub}/profile`
-    let response = this.requests.get<Register>(true, path, auth).subscribe({
-      next: (data) => {
-        this.register = {
-          name: data.name,
-          email: data.email,
-          birthDate: data.birthDate,
-          password: "******"
-        }
-        this.loadedData = true
-      },
-      error: (err) => {
-        console.log(err)
+    this.activatedRoute.data.subscribe(({ register }) => {
+      this.register = {
+        name: register.name,
+        email: register.email,
+        birthDate: register.birthDate,
+        password: "******"
       }
     })
   }

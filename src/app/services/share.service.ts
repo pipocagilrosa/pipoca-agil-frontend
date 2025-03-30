@@ -8,6 +8,10 @@ export class ShareService {
 
   private readonly loginErrorKey = 'loginError';
 
+  private loadingSubject = new BehaviorSubject<Boolean>(false)
+
+  loadingRequested$ = this.loadingSubject.asObservable()
+
   private scrollSubject = new BehaviorSubject<string | null>(null)
 
   scrollRequested$ = this.scrollSubject.asObservable()
@@ -17,6 +21,14 @@ export class ShareService {
   tokenRequested$ = this.tokenSubject.asObservable()
 
   constructor() { }
+
+  showLoadingIcon() {
+    this.loadingSubject.next(true)
+  }
+
+  hideLoadingIcon() {
+    this.loadingSubject.next(false)
+  }
 
   requestScroll(target: string | null) {
     this.scrollSubject.next(target)

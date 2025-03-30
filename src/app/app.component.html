@@ -1,1 +1,5 @@
-<router-outlet></router-outlet>
+<div *ngIf="showLoadingIcon" class="img-container">
+    <img src="assets/pipoca-center.png" alt="Logo" class="loading-logo" />
+</div>
+<router-outlet>
+</router-outlet>

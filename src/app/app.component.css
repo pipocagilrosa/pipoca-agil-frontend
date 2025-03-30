@@ -1,0 +1,28 @@
+.img-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.loading-logo {
+    width: 150px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
+    animation: fadeEffect 2s infinite alternate;
+  }
+
+  @keyframes fadeEffect {
+    0% {
+      opacity: 0; /* Logo invisível */
+    }
+    50% {
+      opacity: 1; /* Logo totalmente visível */
+    }
+    100% {
+      opacity: 0; /* Logo invisível novamente */
+    }
+  }

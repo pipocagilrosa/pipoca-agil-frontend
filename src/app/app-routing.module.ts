@@ -12,6 +12,7 @@ import { KnowledgeTrailInfoViewComponent } from './views/knowledge-trail-info-vi
 import { KnowledgeTrailCareerViewComponent } from './views/knowledge-trail-career-view/knowledge-trail-career-view.component';
 import { KnowledgeTrailInfoResolver } from './home/knowledge-trail-info/knowledge-trail-info.resolve';
 import { KnowledgeTrailCareerResolver } from './home/knowledge-trail-career/knowledge-trail-career.resolve';
+import { ViewDataResolver } from './home/user-data/view-data/view-data.resolve';
 
 
 const routes: Routes = [
@@ -27,7 +28,11 @@ const routes: Routes = [
     path: "user-data",
     component: UserDataViewComponent,
     children: [
-      { path: "view", component: ViewDataComponent},
+      { path: "view", component: ViewDataComponent,
+        resolve: {
+          register: ViewDataResolver
+        }
+      },
       { path: "update", component: UpdateComponent},
       { path: "update-password", component: UpdatePasswordComponent}
     ]

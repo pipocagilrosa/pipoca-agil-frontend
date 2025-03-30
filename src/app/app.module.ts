@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,6 +42,7 @@ import { HeaderTwoComponent } from './template/header-two/header-two.component';
 import { FooterTwoComponent } from './template/footer-two/footer-two.component';
 import { KnowledgeTrailCareerComponent } from './home/knowledge-trail-career/knowledge-trail-career.component';
 import { KnowledgeTrailCareerViewComponent } from './views/knowledge-trail-career-view/knowledge-trail-career-view.component';
+import { loadingInterceptor } from './loading.interceptor';
 
 
 @NgModule({
@@ -88,7 +89,13 @@ import { KnowledgeTrailCareerViewComponent } from './views/knowledge-trail-caree
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}, 
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    provideHttpClient(
+      withInterceptors([loadingInterceptor])
+    )
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
