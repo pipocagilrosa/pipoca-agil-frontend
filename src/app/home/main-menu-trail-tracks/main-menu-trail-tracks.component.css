@@ -1,0 +1,57 @@
+
+.first_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 25rem;
+    margin: auto;
+}
+
+.firts_div {
+}
+
+
+
+h1 {
+    font-family: "Fredoka", serif;
+    font-style: normal;
+    font-size: 40px;
+    font-weight: 600;
+    color: #252525;
+    line-height: 100%;
+    padding: 7rem 8.7rem 2rem 7.5rem;
+}
+
+.p_first_div {
+    padding: 0 2.9rem 8.5rem 7.5rem;
+    color: #252525;
+}
+
+.img {
+    width: 22rem;
+    height: 17rem;
+    padding: 7.5rem 8rem 0 15rem;
+}
+
+.second_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 25rem;
+    background-color: #FFCF52;
+    
+}
+
+.text_main_menu {
+    width: 285px;
+    height: 285px;
+    display: flex;
+    flex-direction: column;
+    background-color: #E8E9D9;
+    border-radius: 40px 40px 70px 40px;
+    padding: 16px;
+    color: #0020C0;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+}

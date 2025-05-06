@@ -44,6 +44,7 @@ import { KnowledgeTrailCareerComponent } from './home/knowledge-trail-career/kno
 import { KnowledgeTrailCareerViewComponent } from './views/knowledge-trail-career-view/knowledge-trail-career-view.component';
 import { loadingInterceptor } from './loading.interceptor';
 import { HeaderThreeComponent } from './template/header-three/header-three.component';
+import { MainMenuTrailTracksComponent } from './home/main-menu-trail-tracks/main-menu-trail-tracks.component';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { HeaderThreeComponent } from './template/header-three/header-three.compo
     FooterTwoComponent,
     KnowledgeTrailCareerComponent,
     KnowledgeTrailCareerViewComponent,
-    HeaderThreeComponent
+    HeaderThreeComponent,
+    MainMenuTrailTracksComponent
   ],
   imports: [
     BrowserModule,

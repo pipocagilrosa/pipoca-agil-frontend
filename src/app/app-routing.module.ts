@@ -13,6 +13,7 @@ import { KnowledgeTrailCareerViewComponent } from './views/knowledge-trail-caree
 import { KnowledgeTrailInfoResolver } from './home/knowledge-trail-info/knowledge-trail-info.resolve';
 import { KnowledgeTrailCareerResolver } from './home/knowledge-trail-career/knowledge-trail-career.resolve';
 import { ViewDataResolver } from './home/user-data/view-data/view-data.resolve';
+import { MainMenuTrailTracksComponent } from './home/main-menu-trail-tracks/main-menu-trail-tracks.component';
 
 
 const routes: Routes = [
@@ -69,6 +70,10 @@ const routes: Routes = [
     resolve: {
       career: KnowledgeTrailCareerResolver
     }
+  },
+  {
+    path: "main-menu-trail-tracks",
+    component: MainMenuTrailTracksComponent,
   }
 ];
 
